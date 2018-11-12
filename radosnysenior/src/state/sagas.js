@@ -1,5 +1,3 @@
-import exampleSaga from '../containers/example/sagas'
+import exampleSaga from '../containers/example/sagas';
 
-export default [
-  exampleSaga,
-];
+export default [exampleSaga];
