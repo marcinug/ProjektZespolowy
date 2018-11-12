@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './LoginComponent.css';
 import { Button, Card, TextField } from '@material-ui/core';
 
-const ExampleComponent = ({ message }) => (
+const LoginComponent = () => (
   <div className="loginContainer">
     <Card className="loginCard">
       <TextField label="Użytkownik" variant="filled" />
@@ -18,8 +17,4 @@ const ExampleComponent = ({ message }) => (
   </div>
 );
 
-ExampleComponent.propTypes = {
-  message: PropTypes.string.isRequired,
-};
-
-export default ExampleComponent;
+export default LoginComponent;
