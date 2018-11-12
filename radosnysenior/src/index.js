@@ -7,7 +7,7 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
 import reducers from './state/reducers';
 import sagas from './state/sagas';
-import example from './containers/example/example';
+import mainPage from './containers/MainPage/MainPage';
 import login from './components/LoginComponent/LoginComponent';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -21,7 +21,7 @@ render(
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={login} />
-        <Route path="/xxx" component={example} />
+        <Route path="/main" component={mainPage} />
       </Switch>
     </BrowserRouter>
   </Provider>,
