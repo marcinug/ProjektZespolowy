@@ -1,3 +1,3 @@
-import exampleSaga from '../containers/example/sagas';
+import mainPageSaga from '../containers/MainPage/MainPageSaga';
 
-export default [exampleSaga];
+export default [mainPageSaga];
