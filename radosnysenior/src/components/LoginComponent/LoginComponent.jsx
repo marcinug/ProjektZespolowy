@@ -12,7 +12,9 @@ const LoginComponent = () => (
         autoComplete="current-password"
         variant="filled"
       />
-      <Button href="main">Zaloguj</Button>
+      <Button color="primary" href="main">
+        Zaloguj
+      </Button>
     </Card>
   </div>
 );
