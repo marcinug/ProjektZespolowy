@@ -1,20 +1,20 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import { FETCH_MESSAGE, messageReceived } from './MainPageActions';
+import { FETCH_POSTS, postsReceived } from './MainPageActions';
 
 const API_URL = './mock_api.json';
 
 function* mainPageWorkerSaga() {
   try {
-    const fetchMessage = () => axios.get(API_URL);
-    const res = yield call(fetchMessage);
+    const fetchPosts = () => axios.get(API_URL);
+    const res = yield call(fetchPosts);
     const { data } = res;
-    yield put(messageReceived(data.message));
+    yield put(postsReceived(data.posts));
   } catch (err) {
-    yield put(messageReceived('ERROR WHILE FETCHING MESSAGE'));
+    yield put(postsReceived('ERROR WHILE FETCHING POSTS'));
   }
 }
 
 export default function* MainPageSaga() {
-  yield takeLatest(FETCH_MESSAGE, mainPageWorkerSaga);
+  yield takeLatest(FETCH_POSTS, mainPageWorkerSaga);
 }

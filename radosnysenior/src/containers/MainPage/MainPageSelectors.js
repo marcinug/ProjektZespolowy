@@ -10,4 +10,12 @@ const makeSelectHelloMessage = () =>
     },
   );
 
-export { makeSelectHelloMessage };
+const makeSelectPosts = () =>
+  createSelector(
+    mainPageSelectorWorker(),
+    substate => {
+      return substate.posts;
+    },
+  );
+
+export { makeSelectHelloMessage, makeSelectPosts };

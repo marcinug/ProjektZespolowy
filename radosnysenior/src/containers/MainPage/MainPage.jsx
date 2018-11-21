@@ -5,33 +5,39 @@ import PropTypes from 'prop-types';
 
 import MainPageComponent from '../../components/MainPageComponent/MainPageComponent';
 
-import { fetchMessage } from './MainPageActions';
-import { makeSelectHelloMessage } from './MainPageSelectors';
+import { fetchPosts } from './MainPageActions';
+import { makeSelectHelloMessage, makeSelectPosts } from './MainPageSelectors';
 
 class MainPage extends PureComponent {
   componentDidMount() {
-    this.props.fetchMessage();
+    this.props.fetchPosts();
   }
   render() {
-    const { exampleMessage } = this.props;
+    const { posts } = this.props;
     return (
-      <div>
-        <MainPageComponent message={exampleMessage} />
-      </div>
+      <React.Fragment>
+        {!!posts && (
+          <div>
+            <MainPageComponent posts={posts} />
+          </div>
+        )}
+      </React.Fragment>
     );
   }
 }
 
 MainPage.propTypes = {
   message: PropTypes.string,
+  posts: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
   exampleMessage: makeSelectHelloMessage(),
+  posts: makeSelectPosts(),
 });
 
 const mapDispatchToProps = {
-  fetchMessage,
+  fetchPosts,
 };
 
 export default connect(

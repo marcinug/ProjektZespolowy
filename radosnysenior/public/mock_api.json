@@ -1,3 +1,34 @@
 {
-  "message": "THIS IS EXAMPLE MOCK API MESSAGE"
+  "posts": [
+    {
+      "id": 1,
+      "heading": "Poszukiwany ogrodnik",
+      "type": "help",
+      "description": "Poszukuję osoby do podlewania ogrodu"
+    },
+    {
+      "id": 2,
+      "heading": "Poszukiwany informatyk",
+      "type": "help",
+      "description": "Potrzebna pomoc przy komputerze"
+    },
+    {
+      "id": 3,
+      "heading": "Rozmowa",
+      "type": "help",
+      "description": "Zaproszę młode osoby na herbatę w celu wspólnej konwersacji"
+    },
+    {
+      "id": 4,
+      "heading": "Wyjście do kina",
+      "type": "help",
+      "description": "Wyjdę z kimś do kina"
+    },
+    {
+      "id": 5,
+      "heading": "Kot w potrzebie",
+      "type": "help",
+      "description": "Mój kot potrzebuje opiekuna"
+    }
+  ]
 }

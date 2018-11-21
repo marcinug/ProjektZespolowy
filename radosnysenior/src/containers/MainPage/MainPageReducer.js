@@ -1,7 +1,8 @@
-import { MESSAGE_RECEIVED } from './MainPageActions';
+import { MESSAGE_RECEIVED, POSTS_RECEIVED } from './MainPageActions';
 
 const initialState = {
   helloMessage: 'hello',
+  posts: [],
 };
 
 function mainPageReducer(state = initialState, action) {
@@ -10,6 +11,11 @@ function mainPageReducer(state = initialState, action) {
       return {
         ...state,
         helloMessage: action.message,
+      };
+    case POSTS_RECEIVED:
+      return {
+        ...state,
+        posts: action.posts,
       };
     default:
       return state;
