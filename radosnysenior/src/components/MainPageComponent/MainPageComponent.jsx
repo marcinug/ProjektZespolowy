@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './MainPageComponent.css';
+import AppBarComponent from '../AppBarComponent/AppBarComponent';
 
 const MainPageComponent = ({ message }) => (
-  <div className="mainContainer">{message}</div>
+  <div className="mainContainer">
+    <AppBarComponent />
+    {message}
+  </div>
 );
 
 MainPageComponent.propTypes = {
