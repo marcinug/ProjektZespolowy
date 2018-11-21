@@ -1,3 +1,23 @@
 .mainContainer {
   text-align: center;
 }
+
+.appContainer {
+  width: 90%;
+  margin: 2% auto;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.singlePost {
+  margin: 10px 0;
+  background-color: #ffeead;
+  padding: 10px;
+}
+
+.postDescription {
+  text-align: left;
+}
