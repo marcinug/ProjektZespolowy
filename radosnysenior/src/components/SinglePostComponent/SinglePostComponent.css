@@ -1,0 +1,35 @@
+.singlePost {
+  margin: 10px 0;
+  padding: 15px;
+}
+
+.singlePost:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.need {
+  background-color: #ffb9b7;
+  border-left: 5px solid #faf3d4;
+}
+
+.give {
+  background-color: #faf3d4;
+  border-left: 5px solid #ffb9b7;
+}
+
+.postHeading {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  padding-bottom: 10px;
+}
+
+.postHeading__heading {
+  font-weight: bold;
+}
+
+.postDescription {
+  text-align: left;
+  font-size: 1.05rem;
+}
