@@ -3,32 +3,37 @@
     {
       "id": 1,
       "heading": "Poszukiwany ogrodnik",
-      "type": "help",
-      "description": "Poszukuję osoby do podlewania ogrodu"
+      "type": "need",
+      "description": "Poszukuję osoby do podlewania ogrodu",
+      "created": "2018-11-06T17:00:00Z"
     },
     {
       "id": 2,
       "heading": "Poszukiwany informatyk",
-      "type": "help",
-      "description": "Potrzebna pomoc przy komputerze"
+      "type": "need",
+      "description": "Potrzebna pomoc przy komputerze",
+      "created": "2018-11-06T17:00:00Z"
     },
     {
       "id": 3,
       "heading": "Rozmowa",
-      "type": "help",
-      "description": "Zaproszę młode osoby na herbatę w celu wspólnej konwersacji"
+      "type": "give",
+      "description": "Odwiedzę osoby starze w celu wspólnej konwersacji",
+      "created": "2018-10-30T06:11:00Z"
     },
     {
       "id": 4,
       "heading": "Wyjście do kina",
-      "type": "help",
-      "description": "Wyjdę z kimś do kina"
+      "type": "need",
+      "description": "Wyjdę z kimś do kina",
+      "created": "2018-11-22T22:10:00Z"
     },
     {
       "id": 5,
-      "heading": "Kot w potrzebie",
-      "type": "help",
-      "description": "Mój kot potrzebuje opiekuna"
+      "heading": "Kot w potrzebie?",
+      "type": "give",
+      "description": "Zaopiekuję się kotami!",
+      "created": "2018-11-16T12:32:00Z"
     }
   ]
 }
