@@ -7,17 +7,7 @@
   margin: 2% auto;
 }
 
-.heading {
+.mainPageHeading {
   display: flex;
   justify-content: space-between;
-}
-
-.singlePost {
-  margin: 10px 0;
-  background-color: #ffeead;
-  padding: 10px;
-}
-
-.postDescription {
-  text-align: left;
 }

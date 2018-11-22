@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import './MainPageComponent.css';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
+import SinglePostComponent from '../SinglePostComponent/SinglePostComponent';
 
 const styles = theme => ({
   root: {
@@ -37,7 +38,7 @@ class MainPageComponent extends React.Component {
       <div className="mainContainer">
         <AppBarComponent />
         <div className="appContainer">
-          <div className="heading">
+          <div className="mainPageHeading">
             <h1>Ogłoszenia</h1>
             <FormControl variant="filled" className={classes.formControl}>
               <InputLabel htmlFor="filled-age-native-simple">
@@ -57,16 +58,7 @@ class MainPageComponent extends React.Component {
               </Select>
             </FormControl>
           </div>
-          {posts[0] && (
-            <div className="postsContainer">
-              {posts.map(post => (
-                <div className="singlePost" key={post.id}>
-                  <div className="postHeading">{post.heading}</div>
-                  <div className="postDescription">{post.description}</div>
-                </div>
-              ))}
-            </div>
-          )}
+          {posts[0] && posts.map(post => <SinglePostComponent post={post} />)}
         </div>
       </div>
     );
