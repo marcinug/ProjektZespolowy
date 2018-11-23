@@ -1,12 +1,8 @@
 # Projekt Zespołowy Radosny Senior 
 
-## Plan pracy
-1.Stworzenie repozytorium </br>
-2.Spisanie funkcjonalności projektu</br>
-3.Podział funkcjonalności projektu na zadania</br>
-4.Ustalenie terminów wykonania zadań</br>
+## https://trello.com/b/4Pfty3Yx/radosny-senior
 
-## Współtwórcy
+## Twórcy
 Marcin Mokrzan </br>
 Jakub Lemka </br>
 
