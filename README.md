@@ -15,7 +15,9 @@
 11. Podpięcie API do aplikacji</br>
 12. ...
 
-## Współtwórcy
+## https://trello.com/b/4Pfty3Yx/radosny-senior
+
+## Twórcy
 
 Marcin Mokrzan </br>
 Jakub Lemka </br>
