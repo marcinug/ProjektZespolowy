@@ -15,7 +15,7 @@ class PostDetailsComponent extends PureComponent {
         >
           <div className="appContainer">
             <div className="mainPageHeading">
-              <h1>Ogłoszenie nr {post}</h1>
+              <h1>Ogłoszenie nr {post.id}</h1>
             </div>
             <div className="postHeading">
               <div />
@@ -23,7 +23,11 @@ class PostDetailsComponent extends PureComponent {
               <div>{moment(post.created).format('DD.MM.YYYY, hh:mm')}</div>
             </div>
             <div className="postDescription">{post.description}</div>
-            <div className="postDescription" />
+            <div className="postDescription">{post.longDescription}</div>
+            <div className="contactInfo">
+              <a href={`mailto: ${post.email}`}>{post.email}</a>
+              <a href={`tel: ${post.tel}`}>{post.tel}</a>
+            </div>
           </div>
         </Paper>
       </div>
