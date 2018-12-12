@@ -4,20 +4,25 @@ import { createStructuredSelector } from 'reselect';
 import PostDetailsComponent from '../../components/PostDetailsComponent/PostDetailsComponent';
 import PropTypes from 'prop-types';
 import { getCurrentId, fetchPost } from './PostDetailsActions';
-import { makeSelectCurrentPost } from './PostDetailsSelectors';
+import {
+  makeSelectCurrentPost,
+  makeSelectLoading,
+} from './PostDetailsSelectors';
 
 class PostDetails extends PureComponent {
   componentDidMount() {
-    this.props.getCurrentId(this.props.match.params.id);
-    this.props.fetchPost();
-    console.log(this.props.currentPost);
+    const { getCurrentId, fetchPost } = this.props;
+    getCurrentId(this.props.match.params.id);
+    fetchPost();
   }
 
   render() {
-    const { currentPost } = this.props;
+    const { currentPost, loading } = this.props;
     return (
       <React.Fragment>
-        {currentPost && <PostDetailsComponent post={currentPost} />}
+        {currentPost && (
+          <PostDetailsComponent post={currentPost} loading={loading} />
+        )}
       </React.Fragment>
     );
   }
@@ -30,6 +35,7 @@ PostDetails.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   currentPost: makeSelectCurrentPost(),
+  loading: makeSelectLoading(),
 });
 
 const mapDispatchToProps = {
