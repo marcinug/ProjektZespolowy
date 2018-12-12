@@ -5,35 +5,50 @@
       "heading": "Poszukiwany ogrodnik",
       "type": "need",
       "description": "Poszukuję osoby do podlewania ogrodu",
-      "created": "2018-11-06T17:00:00Z"
+      "created": "2018-11-06T17:00:00Z",
+      "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "email": "lorem.ipsum@ug.pl",
+      "tel": "555777999"
     },
     {
       "id": 2,
       "heading": "Poszukiwany informatyk",
       "type": "need",
       "description": "Potrzebna pomoc przy komputerze",
-      "created": "2018-11-06T17:00:00Z"
+      "created": "2018-11-06T17:00:00Z",
+      "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "email": "lorem.ipsum@ug.pl",
+      "tel": "555777999"
     },
     {
       "id": 3,
       "heading": "Rozmowa",
       "type": "give",
       "description": "Odwiedzę osoby starze w celu wspólnej konwersacji",
-      "created": "2018-10-30T06:11:00Z"
+      "created": "2018-10-30T06:11:00Z",
+      "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "email": "lorem.ipsum@ug.pl",
+      "tel": "555777999"
     },
     {
       "id": 4,
       "heading": "Wyjście do kina",
       "type": "need",
       "description": "Wyjdę z kimś do kina",
-      "created": "2018-11-22T22:10:00Z"
+      "created": "2018-11-22T22:10:00Z",
+      "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "email": "lorem.ipsum@ug.pl",
+      "tel": "555777999"
     },
     {
       "id": 5,
       "heading": "Kot w potrzebie?",
       "type": "give",
       "description": "Zaopiekuję się kotami!",
-      "created": "2018-11-16T12:32:00Z"
+      "created": "2018-11-16T12:32:00Z",
+      "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "email": "lorem.ipsum@ug.pl",
+      "tel": "555777999"
     }
   ]
 }

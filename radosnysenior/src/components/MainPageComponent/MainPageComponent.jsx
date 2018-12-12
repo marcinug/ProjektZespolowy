@@ -8,6 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import './MainPageComponent.css';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
 import SinglePostComponent from '../SinglePostComponent/SinglePostComponent';
+import { Paper } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
@@ -37,29 +38,36 @@ class MainPageComponent extends React.Component {
     return (
       <div className="mainContainer">
         <AppBarComponent />
-        <div className="appContainer">
-          <div className="mainPageHeading">
-            <h1>Ogłoszenia</h1>
-            <FormControl variant="filled" className={classes.formControl}>
-              <InputLabel htmlFor="filled-age-native-simple">
-                Typ postu
-              </InputLabel>
-              <Select
-                native
-                value={this.state.postType}
-                onChange={this.handleChange('postType')}
-                input={
-                  <FilledInput name="postType" id="filled-age-native-simple" />
-                }
-              >
-                <option value={''} />
-                <option value={1}>Pomogę</option>
-                <option value={0}>Szukam pomocy</option>
-              </Select>
-            </FormControl>
+        <Paper
+          style={{ marginLeft: '2%', marginRight: '2%', paddingBottom: 20 }}
+        >
+          <div className="appContainer">
+            <div className="mainPageHeading">
+              <h1>Ogłoszenia</h1>
+              <FormControl variant="filled" className={classes.formControl}>
+                <InputLabel htmlFor="filled-age-native-simple">
+                  Typ postu
+                </InputLabel>
+                <Select
+                  native
+                  value={this.state.postType}
+                  onChange={this.handleChange('postType')}
+                  input={
+                    <FilledInput
+                      name="postType"
+                      id="filled-age-native-simple"
+                    />
+                  }
+                >
+                  <option value={''} />
+                  <option value={1}>Pomogę</option>
+                  <option value={0}>Szukam pomocy</option>
+                </Select>
+              </FormControl>
+            </div>
+            {posts[0] && posts.map(post => <SinglePostComponent post={post} />)}
           </div>
-          {posts[0] && posts.map(post => <SinglePostComponent post={post} />)}
-        </div>
+        </Paper>
       </div>
     );
   }
