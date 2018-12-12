@@ -14,11 +14,10 @@ class PostDetails extends PureComponent {
   }
 
   render() {
+    const { currentPost } = this.props;
     return (
       <React.Fragment>
-        {this.props.currentPost && (
-          <PostDetailsComponent post={this.props.match.params.id} />
-        )}
+        {currentPost && <PostDetailsComponent post={currentPost} />}
       </React.Fragment>
     );
   }

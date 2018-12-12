@@ -1,15 +1,6 @@
-.AppBarComponent-root-1 header {
-  background-color: #96ceb4;
-}
-
-.AppBarComponent-root-2 header {
-  background-color: #96ceb4;
-}
-
-.AppBarComponent-root-3 header {
-  background-color: #96ceb4;
-}
-
+.AppBarComponent-root-1 header,
+.AppBarComponent-root-2 header,
+.AppBarComponent-root-3 header,
 .AppBarComponent-root-4 header {
   background-color: #96ceb4;
 }
