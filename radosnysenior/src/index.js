@@ -8,9 +8,10 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
 import reducers from './state/reducers';
 import sagas from './state/sagas';
-import mainPage from './containers/MainPage/MainPage';
-import login from './containers/Login/Login';
-import postDetails from './containers/PostDetails/PostDetais';
+import MainPage from './containers/MainPage/MainPage';
+import Login from './containers/Login/Login';
+import PostDetails from './containers/PostDetails/PostDetais';
+import AddPost from './containers/AddPost/AddPost';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -22,9 +23,10 @@ render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={login} />
-        <Route path="/main" component={mainPage} />
-        <Route name="posts" exact path="/posts/:id" component={postDetails} />
+        <Route exact path="/" component={Login} />
+        <Route path="/main" component={MainPage} />
+        <Route path="/add" component={AddPost} />
+        <Route name="posts" exact path="/posts/:id" component={PostDetails} />
       </Switch>
     </BrowserRouter>
   </Provider>,
