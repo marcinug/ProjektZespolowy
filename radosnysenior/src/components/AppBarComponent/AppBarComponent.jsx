@@ -108,14 +108,16 @@ class AppBarComponent extends React.Component {
             >
               <MenuIcon />
             </IconButton> */}
-            <Typography
-              className={classes.title}
-              variant="h6"
-              color="inherit"
-              noWrap
-            >
-              RADOSNY SENIOR
-            </Typography>
+            <Link to="/main" style={{ textDecoration: 'none', color: 'white' }}>
+              <Typography
+                className={classes.title}
+                variant="h6"
+                color="inherit"
+                noWrap
+              >
+                RADOSNY SENIOR
+              </Typography>
+            </Link>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />

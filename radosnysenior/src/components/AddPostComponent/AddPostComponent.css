@@ -1,7 +1,3 @@
-.mainContainer {
-  text-align: center;
-}
-
 .appContainer {
   width: 90%;
   margin: 2% auto;
@@ -12,28 +8,9 @@
   justify-content: space-between;
 }
 
-.postDescription {
-  padding: 10px 0;
-}
-
-.contactInfo {
+.addPostFormContainer {
+  width: 40%;
+  text-align: left;
   display: flex;
-  justify-content: space-around;
-  margin-top: 25px;
-}
-
-.contactInfo a {
-  text-decoration: none;
-  color: black;
-  background-color: #96ceb4;
-  padding: 10px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-}
-
-a:hover {
-  cursor: pointer;
-  color: white;
+  flex-direction: column;
 }
