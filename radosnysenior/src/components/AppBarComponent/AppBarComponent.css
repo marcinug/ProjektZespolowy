@@ -10,3 +10,19 @@
   cursor: pointer;
   padding: 0 10px;
 }
+
+.formSentButton {
+  background-color: #96ceb4;
+  text-align: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.formSentButton:hover {
+  color: white;
+}
+
+.formSentButton:active {
+  opacity: 0.7;
+}

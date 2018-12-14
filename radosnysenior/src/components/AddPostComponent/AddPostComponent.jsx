@@ -12,6 +12,8 @@ import {
 class AddPostComponent extends PureComponent {
   state = {
     type: '',
+    cost: '',
+    price: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -20,15 +22,15 @@ class AddPostComponent extends PureComponent {
     description: '',
   };
 
+  handleSubmit = () => {
+    this.props.handleSubmit(this.state);
+  };
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
     });
   };
-
-  componentDidUpdate() {
-    console.log(this.state);
-  }
 
   render() {
     return (
@@ -42,7 +44,9 @@ class AddPostComponent extends PureComponent {
               <h1>Dodaj post</h1>
             </div>
             <div className="addPostFormContainer">
-              <InputLabel htmlFor="type">Typ ogłoszenia</InputLabel>
+              <InputLabel className="selectInput" htmlFor="type">
+                Typ ogłoszenia
+              </InputLabel>
               <Select
                 value={this.state.type}
                 onChange={this.handleChange('type')}
@@ -55,6 +59,31 @@ class AddPostComponent extends PureComponent {
                 <MenuItem value="oferuje">Oferuję pomoc</MenuItem>
                 <MenuItem value="szukam">Szukam pomocy</MenuItem>
               </Select>
+              <InputLabel className="selectInput" htmlFor="cost">
+                Płatność
+              </InputLabel>
+              <Select
+                value={this.state.cost}
+                onChange={this.handleChange('cost')}
+                inputProps={{
+                  name: 'cost',
+                  id: 'cost',
+                }}
+              >
+                <MenuItem value="" />
+                <MenuItem value="free">Wolontariat</MenuItem>
+                <MenuItem value="paid">Płatne</MenuItem>
+              </Select>
+              {this.state.cost === 'paid' && (
+                <TextField
+                  id="standard-name"
+                  label="Cena (PLN)"
+                  value={this.state.price}
+                  onChange={this.handleChange('price')}
+                  margin="normal"
+                  type="number"
+                />
+              )}
               <TextField
                 id="standard-name"
                 label="Imię"
@@ -99,6 +128,14 @@ class AddPostComponent extends PureComponent {
                 onChange={this.handleChange('description')}
                 margin="normal"
               />
+              <span
+                className="formSentButton"
+                role="button"
+                aria-hidden
+                onClick={this.handleSubmit}
+              >
+                WYŚLIJ
+              </span>
             </div>
           </div>
         </Paper>
