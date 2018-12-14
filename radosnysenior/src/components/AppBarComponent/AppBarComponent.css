@@ -4,3 +4,9 @@
 .AppBarComponent-root-4 header {
   background-color: #96ceb4;
 }
+
+.addPostButton {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 10px;
+}
