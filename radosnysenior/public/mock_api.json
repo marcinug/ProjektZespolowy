@@ -9,7 +9,11 @@
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
       "tel": "555777999",
-      "addedBy": "test_user1"
+      "addedBy": "test_user1",
+      "comments": [
+        { "created": "2018-10-30T06:11:00Z", "content": "lorem ipsum" },
+        { "created": "2018-12-12T09:13:00Z", "content": "lorem ipsum lorem" }
+      ]
     },
     {
       "id": 2,
@@ -20,7 +24,11 @@
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
       "tel": "555777999",
-      "addedBy": "test_user2"
+      "addedBy": "test_user2",
+      "comments": [
+        { "created": "2018-10-30T06:11:00Z", "content": "lorem ipsum" },
+        { "created": "2018-12-12T09:13:00Z", "content": "lorem ipsum lorem" }
+      ]
     },
     {
       "id": 3,
@@ -31,7 +39,11 @@
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
       "tel": "555777999",
-      "addedBy": "test_user3"
+      "addedBy": "test_user3",
+      "comments": [
+        { "created": "2018-10-30T06:11:00Z", "content": "lorem ipsum" },
+        { "created": "2018-12-12T09:13:00Z", "content": "lorem ipsum lorem" }
+      ]
     },
     {
       "id": 4,
@@ -42,7 +54,11 @@
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
       "tel": "555777999",
-      "addedBy": "test_user4"
+      "addedBy": "test_user4",
+      "comments": [
+        { "created": "2018-10-30T06:11:00Z", "content": "lorem ipsum" },
+        { "created": "2018-12-12T09:13:00Z", "content": "lorem ipsum lorem" }
+      ]
     },
     {
       "id": 5,
@@ -53,7 +69,11 @@
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
       "tel": "555777999",
-      "addedBy": "test_user5"
+      "addedBy": "test_user5",
+      "comments": [
+        { "created": "2018-10-30T06:11:00Z", "content": "lorem ipsum" },
+        { "created": "2018-12-12T09:13:00Z", "content": "lorem ipsum lorem" }
+      ]
     }
   ],
   "users": [
@@ -62,7 +82,11 @@
       "name": "Test",
       "surname": "User",
       "mail": "test_user@gmail.com",
-      "marks": [4, 5, 3.5],
+      "rates": [
+        { "mark": 4, "desc": "lorem ipsum" },
+        { "mark": 5, "desc": "lorem ipsum" },
+        { "mark": 4, "desc": "lorem ipsum" }
+      ],
       "city": "Sopot"
     },
     {
@@ -70,7 +94,11 @@
       "name": "Test",
       "surname": "User",
       "mail": "test_user@gmail.com",
-      "marks": [4, 5, 3.5],
+      "rates": [
+        { "mark": 4, "desc": "lorem ipsum" },
+        { "mark": 5, "desc": "lorem ipsum" },
+        { "mark": 4, "desc": "lorem ipsum" }
+      ],
       "city": "Sopot"
     },
     {
@@ -78,7 +106,11 @@
       "name": "Test",
       "surname": "User",
       "mail": "test_user@gmail.com",
-      "marks": [4, 5, 3.5],
+      "rates": [
+        { "mark": 4, "desc": "lorem ipsum" },
+        { "mark": 5, "desc": "lorem ipsum" },
+        { "mark": 4, "desc": "lorem ipsum" }
+      ],
       "city": "Sopot"
     },
     {
@@ -86,7 +118,11 @@
       "name": "Test",
       "surname": "User",
       "mail": "test_user@gmail.com",
-      "marks": [4, 5, 3.5],
+      "rates": [
+        { "mark": 4, "desc": "lorem ipsum" },
+        { "mark": 5, "desc": "lorem ipsum" },
+        { "mark": 4, "desc": "lorem ipsum" }
+      ],
       "city": "Sopot"
     },
     {
@@ -94,7 +130,11 @@
       "name": "Test",
       "surname": "User",
       "mail": "test_user@gmail.com",
-      "marks": [4, 5, 3.5],
+      "rates": [
+        { "mark": 4, "desc": "lorem ipsum" },
+        { "mark": 5, "desc": "lorem ipsum" },
+        { "mark": 4, "desc": "lorem ipsum" }
+      ],
       "city": "Sopot"
     }
   ]

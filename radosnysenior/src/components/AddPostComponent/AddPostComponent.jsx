@@ -9,6 +9,13 @@ import {
   MenuItem,
 } from '@material-ui/core';
 
+const styles = theme => ({
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+});
+
 class AddPostComponent extends PureComponent {
   state = {
     type: '',
@@ -122,8 +129,11 @@ class AddPostComponent extends PureComponent {
                 type="number"
               />
               <TextField
-                id="standard-name"
+                id="outlined-multiline-flexible"
                 label="Opis"
+                multiline
+                rows="8"
+                rowsMax="20"
                 value={this.state.description}
                 onChange={this.handleChange('description')}
                 margin="normal"
