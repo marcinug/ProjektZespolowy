@@ -7,6 +7,10 @@
   margin: 2% auto;
 }
 
+.paperPostContainer {
+  position: relative;
+}
+
 .mainPageHeading {
   display: flex;
   justify-content: space-between;
@@ -34,6 +38,46 @@
 }
 
 a:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.addedBy {
+  padding-top: 20px;
+  text-align: right;
+}
+
+.commentsContaner {
+  width: 85%;
+  margin: 15px 2% 15px auto;
+}
+
+.commentIcon {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.commentIcon:hover {
+  fill: #96ceb4;
+  color: #96ceb4;
+}
+
+.addCommentButton {
+  text-decoration: none;
+  color: black;
+  background-color: #96ceb4;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.addCommentButton:hover {
   cursor: pointer;
   color: white;
 }

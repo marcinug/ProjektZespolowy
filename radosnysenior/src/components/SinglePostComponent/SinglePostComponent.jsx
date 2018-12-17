@@ -11,7 +11,9 @@ const SinglePostComponent = ({ post }) => (
       <div className="postHeading">
         <div />
         <div className="postHeading__heading">{post.heading}</div>
-        <div>{moment(post.created).format('DD.MM.YYYY, hh:mm')}</div>
+        <div>{`${post.addedBy};  ${moment(post.created).format(
+          'DD.MM.YYYY, hh:mm',
+        )}`}</div>
       </div>
       <div className="postDescription">{post.description}</div>
       <div className="postDescription" />
