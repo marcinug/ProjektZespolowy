@@ -8,7 +8,8 @@
       "created": "2018-11-06T17:00:00Z",
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
-      "tel": "555777999"
+      "tel": "555777999",
+      "addedBy": "test_user1"
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "created": "2018-11-06T17:00:00Z",
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
-      "tel": "555777999"
+      "tel": "555777999",
+      "addedBy": "test_user2"
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "created": "2018-10-30T06:11:00Z",
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
-      "tel": "555777999"
+      "tel": "555777999",
+      "addedBy": "test_user3"
     },
     {
       "id": 4,
@@ -38,7 +41,8 @@
       "created": "2018-11-22T22:10:00Z",
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
-      "tel": "555777999"
+      "tel": "555777999",
+      "addedBy": "test_user4"
     },
     {
       "id": 5,
@@ -48,7 +52,50 @@
       "created": "2018-11-16T12:32:00Z",
       "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "email": "lorem.ipsum@ug.pl",
-      "tel": "555777999"
+      "tel": "555777999",
+      "addedBy": "test_user5"
+    }
+  ],
+  "users": [
+    {
+      "id": "test_user1",
+      "name": "Test",
+      "surname": "User",
+      "mail": "test_user@gmail.com",
+      "marks": [4, 5, 3.5],
+      "city": "Sopot"
+    },
+    {
+      "id": "test_user2",
+      "name": "Test",
+      "surname": "User",
+      "mail": "test_user@gmail.com",
+      "marks": [4, 5, 3.5],
+      "city": "Sopot"
+    },
+    {
+      "id": "test_user3",
+      "name": "Test",
+      "surname": "User",
+      "mail": "test_user@gmail.com",
+      "marks": [4, 5, 3.5],
+      "city": "Sopot"
+    },
+    {
+      "id": "test_user4",
+      "name": "Test",
+      "surname": "User",
+      "mail": "test_user@gmail.com",
+      "marks": [4, 5, 3.5],
+      "city": "Sopot"
+    },
+    {
+      "id": "test_user5",
+      "name": "Test",
+      "surname": "User",
+      "mail": "test_user@gmail.com",
+      "marks": [4, 5, 3.5],
+      "city": "Sopot"
     }
   ]
 }
