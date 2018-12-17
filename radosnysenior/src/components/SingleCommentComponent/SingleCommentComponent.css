@@ -1,0 +1,13 @@
+.singleCommentContainer {
+  margin: 10px 0;
+  padding: 10px 20px;
+}
+
+.commentDateCreated {
+  text-align: right;
+}
+
+.commentContent {
+  text-align: left;
+  padding: 10px;
+}
