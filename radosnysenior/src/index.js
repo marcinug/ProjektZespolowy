@@ -24,7 +24,7 @@ render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={App} /> {/* Login */}
+        <Route exact path="/" component={Login} /> {/* TODO Display App */}
         <Route path="/main" component={MainPage} />
         <Route path="/add" component={AddPost} />
         <Route name="posts" exact path="/posts/:id" component={PostDetails} />
