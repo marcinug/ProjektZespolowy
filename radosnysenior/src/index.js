@@ -12,6 +12,7 @@ import MainPage from './containers/MainPage/MainPage';
 import Login from './containers/Login/Login';
 import PostDetails from './containers/PostDetails/PostDetais';
 import AddPost from './containers/AddPost/AddPost';
+import UserDetails from './containers/UserDetails/UserDetails';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -27,6 +28,7 @@ render(
         <Route path="/main" component={MainPage} />
         <Route path="/add" component={AddPost} />
         <Route name="posts" exact path="/posts/:id" component={PostDetails} />
+        <Route name="users" exact path="/users/:id" component={UserDetails} />
       </Switch>
     </BrowserRouter>
   </Provider>,
