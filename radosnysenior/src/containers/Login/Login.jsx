@@ -4,7 +4,6 @@ import LoginComponent from '../../components/LoginComponent/LoginComponent';
 class Login extends PureComponent {
   render() {
     return <LoginComponent />;
-    
   }
 }
 
