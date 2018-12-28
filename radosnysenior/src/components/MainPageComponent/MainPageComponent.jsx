@@ -65,7 +65,7 @@ class MainPageComponent extends React.Component {
                 </Select>
               </FormControl>
             </div>
-            {posts[0] && posts.map(post => <SinglePostComponent post={post} />)}
+            {posts[0] && posts.map(post => <SinglePostComponent post={post} key={post.id}/>)}
           </div>
         </Paper>
       </div>

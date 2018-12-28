@@ -5,6 +5,7 @@ import './PostDetailsComponent.css';
 import { Paper, TextField } from '@material-ui/core';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
 import SingleCommentComponent from '../SingleCommentComponent/SingleCommentComponent';
+import { pseudoRandomBytes } from 'crypto';
 
 class PostDetailsComponent extends PureComponent {
   state = {
@@ -64,7 +65,7 @@ class PostDetailsComponent extends PureComponent {
                 aria-hidden="true"
                 data-prefix="far"
                 data-icon="comment"
-                class="svg-inline--fa fa-comment fa-w-16"
+                className="svg-inline--fa fa-comment fa-w-16"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
