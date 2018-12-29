@@ -29,11 +29,15 @@ class AddPostComponent extends PureComponent {
     description: '',
   };
 
-  handleSubmit = () => {
-    this.props.handleSubmit(this.state);
+  handleSubmit = (e) => {
+    console.log(e.target.value);
+    e.preventDefault();
+    // this.props.handleSubmit(this.state);
+    console.log(this.state);
   };
 
   handleChange = name => event => {
+    console.log(event.target.value);
     this.setState({
       [name]: event.target.value,
     });
