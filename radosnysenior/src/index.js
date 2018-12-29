@@ -15,12 +15,14 @@ import AddPost from './containers/AddPost/AddPost';
 import App from './App';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+// import { createStore } from 'redux';
+import rootReducer from './store/reducers/rootReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(reducers, applyMiddleware(sagaMiddleware));
+const store = createStore(rootReducer, /*applyMiddleware(sagaMiddleware)*/);
 
-sagas.forEach(sagaMiddleware.run);
+// sagas.forEach(sagaMiddleware.run);
 
 render(
   <Provider store={store}>
