@@ -8,6 +8,8 @@ import {
   Select,
   MenuItem,
 } from '@material-ui/core';
+import { createPost } from '../../store/actions/postActions';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
   textField: {
@@ -158,4 +160,10 @@ class AddPostComponent extends PureComponent {
   }
 }
 
-export default AddPostComponent;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createPost: (post) => dispatch(createPost(post)) 
+  }
+}
+
+export default connect(null, mapDispatchToProps)(AddPostComponent);

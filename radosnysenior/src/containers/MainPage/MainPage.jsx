@@ -14,6 +14,7 @@ class MainPage extends PureComponent {
   }
   render() {
     const { posts } = this.props;
+    console.log(this.props);
     return (
       <React.Fragment>
         {!!posts && (
@@ -31,10 +32,17 @@ MainPage.propTypes = {
   posts: PropTypes.array,
 };
 
-const mapStateToProps = createStructuredSelector({
-  exampleMessage: makeSelectHelloMessage(),
-  posts: makeSelectPosts(),
-});
+// const mapStateToProps = createStructuredSelector({
+//   exampleMessage: makeSelectHelloMessage(),
+//   posts: makeSelectPosts(),
+//   // post: state.post.posts
+// });
+
+const mapStateToProps = (state) => {
+  return {
+    posts: state.post.posts
+  }
+}
 
 const mapDispatchToProps = {
   fetchPosts,

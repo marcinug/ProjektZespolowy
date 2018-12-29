@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import 'normalize.css';
 import './assets/styles/global.css';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
@@ -17,10 +17,23 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 // import { createStore } from 'redux';
 import rootReducer from './store/reducers/rootReducer';
+// import rootReducer from './store/reducers/rootReducer';
+import thunk from 'redux-thunk';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import fbConfig from './config/fbConfig';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(rootReducer, /*applyMiddleware(sagaMiddleware)*/);
+//const store = createStore(rootReducer, /*applyMiddleware(sagaMiddleware)*/);
+// const store = createStore(reducers, applyMiddleware(sagaMiddleware));
+const store = createStore(rootReducer, 
+    compose(
+      applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
+      reduxFirestore(fbConfig),
+      reactReduxFirebase(fbConfig)
+    )
+  );
 
 // sagas.forEach(sagaMiddleware.run);
 
