@@ -13,6 +13,8 @@ import Login from './containers/Login/Login';
 import PostDetails from './containers/PostDetails/PostDetais';
 import AddPost from './containers/AddPost/AddPost';
 import App from './App';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -24,7 +26,8 @@ render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Login} /> {/* TODO Display App */}
+        <Route exact path="/" component={Login} /> {/* TODO Display App SignIn */}
+        <Route path="/signup" component={SignUp} />
         <Route path="/main" component={MainPage} />
         <Route path="/add" component={AddPost} />
         <Route name="posts" exact path="/posts/:id" component={PostDetails} />

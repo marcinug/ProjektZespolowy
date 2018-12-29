@@ -15,9 +15,10 @@ class PostDetails extends PureComponent {
     getCurrentId(this.props.match.params.id);
     fetchPost();
   }
-
+  
   render() {
     const { currentPost, loading } = this.props;
+    console.log(this.props);
     return (
       <React.Fragment>
         {currentPost && (
