@@ -27,6 +27,8 @@ const initState = {
   
   const postReducer = (state = initState, action) => {
     switch (action.type) {
+      case 'CREATE_POST':
+        console.log('created project', action.project);
       case 'CREATE_POST_SUCCESS':
         console.log('create post success');
         return state;

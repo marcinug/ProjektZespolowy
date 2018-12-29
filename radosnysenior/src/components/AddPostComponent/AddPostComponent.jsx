@@ -36,6 +36,7 @@ class AddPostComponent extends PureComponent {
     e.preventDefault();
     // this.props.handleSubmit(this.state);
     console.log(this.state);
+    this.props.createPost(this.state)
   };
 
   handleChange = name => event => {
