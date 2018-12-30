@@ -1,28 +1,28 @@
 const initState = {
-    posts: [
-      {
-        id: 1,
-        heading: "Poszukiwany ogrodnik",
-        type: "need",
-        description: "Poszukuję osoby do podlewania ogrodu",
-        created: "2018-11-06T17:00:00Z",
-        longDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        email: "lorem.ipsum@ug.pl",
-        tel: "555777999",
-        addedBy: "test_user1",
-      },
-      {
-        id: 2,
-        heading: "Poszukiwany informatyk",
-        type: "need",
-        description: "Potrzebna pomoc przy komputerze",
-        created: "2018-11-06T17:00:00Z",
-        longDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        email: "lorem.ipsum@ug.pl",
-        tel: "555777999",
-        addedBy: "test_user2",
-      }
-    ]
+    // posts: [
+    //   {
+    //     id: 1,
+    //     heading: "Poszukiwany ogrodnik",
+    //     type: "need",
+    //     description: "Poszukuję osoby do podlewania ogrodu",
+    //     created: "2018-11-06T17:00:00Z",
+    //     longDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    //     email: "lorem.ipsum@ug.pl",
+    //     tel: "555777999",
+    //     addedBy: "test_user1",
+    //   },
+    //   {
+    //     id: 2,
+    //     heading: "Poszukiwany informatyk",
+    //     type: "need",
+    //     description: "Potrzebna pomoc przy komputerze",
+    //     created: "2018-11-06T17:00:00Z",
+    //     longDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    //     email: "lorem.ipsum@ug.pl",
+    //     tel: "555777999",
+    //     addedBy: "test_user2",
+    //   }
+    // ]
   }
   
   const postReducer = (state = initState, action) => {
