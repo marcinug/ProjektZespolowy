@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 import MainPageComponent from '../../components/MainPageComponent/MainPageComponent';
 
@@ -39,8 +41,9 @@ MainPage.propTypes = {
 // });
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    posts: state.post.posts
+    posts: state.firestore.ordered.posts
   }
 }
 
@@ -48,7 +51,13 @@ const mapDispatchToProps = {
   fetchPosts,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(MainPage);
+export default compose( 
+    connect(
+      mapStateToProps,
+      mapDispatchToProps,
+    ),
+    firestoreConnect([
+      { collection : 'posts'}
+    ])
+  )
+(MainPage);
