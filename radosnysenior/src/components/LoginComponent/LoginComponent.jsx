@@ -1,6 +1,8 @@
 import React, { Component }  from 'react';
 import './LoginComponent.css';
 import { Button, Card, TextField } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { signIn } from '../../store/actions/authActions';
 
 class LoginComponent extends Component {
   state = {
@@ -8,7 +10,7 @@ class LoginComponent extends Component {
     password: ''
   }
   handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({
       [e.target.id]: e.target.value
     })
@@ -16,7 +18,8 @@ class LoginComponent extends Component {
   }
   handleSubmit = (e) => {
       e.preventDefault();
-      console.log(this.state);
+      // console.log(this.state);
+      this.props.signIn(this.state)
   }
 
 render() {
@@ -51,4 +54,16 @@ render() {
   }
 }
 
-export default LoginComponent;
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signIn(creds))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);

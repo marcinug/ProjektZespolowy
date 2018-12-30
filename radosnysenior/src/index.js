@@ -23,7 +23,7 @@ import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import fbConfig from './config/fbConfig';
 
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
 //const store = createStore(rootReducer, /*applyMiddleware(sagaMiddleware)*/);
 // const store = createStore(reducers, applyMiddleware(sagaMiddleware));
@@ -41,7 +41,7 @@ render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Login} /> {/* TODO Display App SignIn */}
+        <Route exact path="/" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/main" component={MainPage} />
         <Route path="/add" component={AddPost} />
