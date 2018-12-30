@@ -31,7 +31,7 @@ class PostDetails extends PureComponent {
       <React.Fragment>
         { posts && posts.map(post => {
           return (
-            <Link to={'/posts/' + post.id}>
+            <Link to={'/posts/' + post.id } key={post.id}>
           {/* {currentPost && ( */}
             <PostDetailsComponent post={post} key={post.id} loading={loading} />
           {/* )} */}
