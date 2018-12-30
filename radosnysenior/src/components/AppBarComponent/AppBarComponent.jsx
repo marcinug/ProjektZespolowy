@@ -20,6 +20,7 @@ import CalendarToday from '@material-ui/icons/CalendarToday';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { styles } from './AppBarOwnStyles';
 import './AppBarComponent.css';
+import { connect } from 'react-redux';
 
 class AppBarComponent extends React.Component {
   state = {
@@ -175,4 +176,11 @@ AppBarComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AppBarComponent);
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps)(withStyles(styles)(AppBarComponent));
