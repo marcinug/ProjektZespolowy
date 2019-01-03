@@ -78,7 +78,7 @@ class PostsListBase extends React.Component {
     console.log(event.target.value);
 
     if (chosenType === '') {
-      return;
+      this.parseData();
     } else {
       let posts = this.state.posts;
       const filteredPosts = posts.filter(function(post) {
