@@ -8,6 +8,7 @@ import './UserDetailsComponent.css';
 import { Paper } from '@material-ui/core';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
 import _ from 'lodash';
+import StarComponent from './StarComponent';
 
 const PostDetailsPage = () => <PostDetails />;
 
@@ -97,36 +98,10 @@ class PostDetailsComponent extends PureComponent {
                     </a>
                   </h2>
                   {_.times(userRating, i => (
-                    <svg
-                      viewBox="0 0 19.481 19.481"
-                      enableBackground="new 0 0 19.481 19.481"
-                      width="48px"
-                      height="48px"
-                      key={i}
-                    >
-                      <g>
-                        <path
-                          d="m10.201,.758l2.478,5.865 6.344,.545c0.44,0.038 0.619,0.587 0.285,0.876l-4.812,4.169 1.442,6.202c0.1,0.431-0.367,0.77-0.745,0.541l-5.452-3.288-5.452,3.288c-0.379,0.228-0.845-0.111-0.745-0.541l1.442-6.202-4.813-4.17c-0.334-0.289-0.156-0.838 0.285-0.876l6.344-.545 2.478-5.864c0.172-0.408 0.749-0.408 0.921,0z"
-                          fill="#FFDA44"
-                        />
-                      </g>
-                    </svg>
+                    <StarComponent color="#FFDA44" key={i} />
                   ))}
                   {_.times(5 - userRating, i => (
-                    <svg
-                      viewBox="0 0 19.481 19.481"
-                      enableBackground="new 0 0 19.481 19.481"
-                      width="48px"
-                      height="48px"
-                      key={i}
-                    >
-                      <g>
-                        <path
-                          d="m10.201,.758l2.478,5.865 6.344,.545c0.44,0.038 0.619,0.587 0.285,0.876l-4.812,4.169 1.442,6.202c0.1,0.431-0.367,0.77-0.745,0.541l-5.452-3.288-5.452,3.288c-0.379,0.228-0.845-0.111-0.745-0.541l1.442-6.202-4.813-4.17c-0.334-0.289-0.156-0.838 0.285-0.876l6.344-.545 2.478-5.864c0.172-0.408 0.749-0.408 0.921,0z"
-                          fill="black"
-                        />
-                      </g>
-                    </svg>
+                    <StarComponent color="black" key={i} />
                   ))}
                 </div>
               </Paper>
