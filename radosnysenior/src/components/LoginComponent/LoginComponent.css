@@ -20,3 +20,14 @@
   background-color: darkcyan;
   color: red;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.text-error {
+  color: red;
+}
