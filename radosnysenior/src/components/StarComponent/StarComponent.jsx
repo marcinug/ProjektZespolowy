@@ -1,11 +1,11 @@
 import React from 'react';
 
-const StarComponent = ({ color }) => (
+const StarComponent = ({ color, size }) => (
   <svg
     viewBox="0 0 19.481 19.481"
     enableBackground="new 0 0 19.481 19.481"
-    width="48px"
-    height="48px"
+    width={size}
+    height={size}
   >
     <g>
       <path
