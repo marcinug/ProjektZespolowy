@@ -1,4 +1,8 @@
 import React, { PureComponent } from 'react';
+import * as moment from 'moment';
+import { compose } from 'recompose';
+import { withFirebase } from '../Firebase';
+import { withRouter } from 'react-router-dom';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
 import './AddPostComponent.css';
 import {
@@ -8,43 +12,50 @@ import {
   Select,
   MenuItem,
 } from '@material-ui/core';
-import { createPost } from '../../store/actions/postActions';
-import { connect } from 'react-redux';
 
-const styles = theme => ({
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-  },
-});
+const AddPostPage = () => <AddPost />;
+
+var unsubscribe = null;
 
 class AddPostComponent extends PureComponent {
   state = {
+    addedBy: '',
+    comments: [],
     type: '',
     cost: '',
     price: '',
-    firstName: '',
-    lastName: '',
     email: '',
     heading: '',
-    phoneNum: '',
+    tel: '',
     description: '',
   };
 
-  handleSubmit = (e) => {
-    console.log(e.target.value);
-    e.preventDefault();
-    // this.props.handleSubmit(this.state);
-    console.log(this.state);
-    this.props.createPost(this.state)
+  componentDidMount() {
+    this.props.firebase.auth.onAuthStateChanged(user => {
+      if (user) {
+        const currTime = moment().format();
+        this.setState({ addedBy: user.email });
+        this.setState({ created: currTime });
+      } else {
+        this.props.history.push('/');
+      }
+    });
+  }
+
+  handleSubmit = () => {
+    let fb = this.props.firebase;
+    fb.addPost(this.state);
   };
 
   handleChange = name => event => {
-    console.log(event.target.value);
     this.setState({
       [name]: event.target.value,
     });
   };
+
+  componentWillUnmount() {
+    if (unsubscribe) unsubscribe();
+  }
 
   render() {
     return (
@@ -58,6 +69,13 @@ class AddPostComponent extends PureComponent {
               <h1>Dodaj post</h1>
             </div>
             <div className="addPostFormContainer">
+              <TextField
+                id="standard-name"
+                label="Nagłówek"
+                value={this.state.heading}
+                onChange={this.handleChange('heading')}
+                margin="normal"
+              />
               <InputLabel className="selectInput" htmlFor="type">
                 Typ ogłoszenia
               </InputLabel>
@@ -70,8 +88,8 @@ class AddPostComponent extends PureComponent {
                 }}
               >
                 <MenuItem value="" />
-                <MenuItem value="oferuje">Oferuję pomoc</MenuItem>
-                <MenuItem value="szukam">Szukam pomocy</MenuItem>
+                <MenuItem value="give">Oferuję pomoc</MenuItem>
+                <MenuItem value="need">Szukam pomocy</MenuItem>
               </Select>
               <InputLabel className="selectInput" htmlFor="cost">
                 Płatność
@@ -100,20 +118,6 @@ class AddPostComponent extends PureComponent {
               )}
               <TextField
                 id="standard-name"
-                label="Imię"
-                value={this.state.firstName}
-                onChange={this.handleChange('firstName')}
-                margin="normal"
-              />
-              <TextField
-                id="standard-name"
-                label="Nazwisko"
-                value={this.state.lastName}
-                onChange={this.handleChange('lastName')}
-                margin="normal"
-              />
-              <TextField
-                id="standard-name"
                 label="Email"
                 value={this.state.email}
                 onChange={this.handleChange('email')}
@@ -122,16 +126,9 @@ class AddPostComponent extends PureComponent {
               />
               <TextField
                 id="standard-name"
-                label="Nagłówek"
-                value={this.state.heading}
-                onChange={this.handleChange('heading')}
-                margin="normal"
-              />
-              <TextField
-                id="standard-name"
                 label="Nr telefonu"
-                value={this.state.phoneNum}
-                onChange={this.handleChange('phoneNum')}
+                value={this.state.tel}
+                onChange={this.handleChange('tel')}
                 margin="normal"
                 type="number"
               />
@@ -161,10 +158,9 @@ class AddPostComponent extends PureComponent {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    createPost: (post) => dispatch(createPost(post)) 
-  }
-}
+const AddPost = compose(
+  withFirebase,
+  withRouter,
+)(AddPostComponent);
 
-export default connect(null, mapDispatchToProps)(AddPostComponent);
+export default AddPostPage;
