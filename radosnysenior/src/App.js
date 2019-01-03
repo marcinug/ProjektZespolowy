@@ -1,21 +1,43 @@
-import React, { Component } from 'react';
-import { BrowserRouter,  Switch, Route } from 'react-router-dom';
-import Navbar from './components/layout/Navbar'
-import Dashboard from './components/dashboard/Dashboard';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore, compose } from 'redux';
+import MainPage from './components/MainPageComponent/MainPageComponent';
+import Login from './components/LoginComponent/LoginComponent';
+import createSagaMiddleware from 'redux-saga';
+import PostDetails from './components/PostDetailsComponent/PostDetailsComponent';
+import AddPost from './components/AddPostComponent/AddPostComponent';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import * as ROUTES from './constants/routes';
+import rootReducer from './state/reducers';
+import thunk from 'redux-thunk';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import fbConfig from './config/fbConfig';
+import sagas from './state/sagas';
 
-class App extends Component {
-    render() {
-        return (
-            <BrowserRouter>
-                <div className="App">
-                    <Navbar/>
-                    <Switch>
-                        <Route path='/' component={Dashboard}/>
-                    </Switch>
-                </div>
-            </BrowserRouter>
-        );
-    }
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagas.forEach(sagaMiddleware.run);
+
+class App extends React.Component {
+  componentDidMount() {
+    document.title = 'Radosny Senior';
+  }
+  render() {
+    return (
+      <Provider store={store}>
+        <Router>
+          <div>
+            <Route exact path={ROUTES.LOGIN} component={Login} />
+            <Route exact path={ROUTES.MAIN_PAGE} component={MainPage} />
+            <Route exact path={ROUTES.ADD_POST} component={AddPost} />
+            <Route exact path={ROUTES.SINGLE_POST} component={PostDetails} />
+          </div>
+        </Router>
+      </Provider>
+    );
+  }
 }
 
 export default App;
