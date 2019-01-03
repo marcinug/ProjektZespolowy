@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {
   AppBar,
@@ -23,13 +22,22 @@ import CalendarToday from '@material-ui/icons/CalendarToday';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { styles } from './AppBarOwnStyles';
 import './AppBarComponent.css';
-import { connect } from 'react-redux';
 
 class AppBarComponent extends React.Component {
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null,
   };
+
+  componentDidMount() {
+    this.props.firebase.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ currentUser: user.email });
+      } else {
+        this.props.history.push('/');
+      }
+    });
+  }
 
   handleProfileMenuOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -54,6 +62,10 @@ class AppBarComponent extends React.Component {
     this.props.history.push('/');
   };
 
+  myProfile = () => {
+    this.props.history.push(`/users/${this.state.currentUser}`);
+  };
+
   render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
@@ -68,7 +80,7 @@ class AppBarComponent extends React.Component {
         open={isMenuOpen}
         onClose={this.handleMenuClose}
       >
-        <MenuItem onClick={this.handleMenuClose}>Mój profil</MenuItem>
+        <MenuItem onClick={this.myProfile}>Mój profil</MenuItem>
         <MenuItem onClick={this.logOut}>Wyloguj się</MenuItem>
       </Menu>
     );
@@ -180,14 +192,6 @@ class AppBarComponent extends React.Component {
     );
   }
 }
-
-AppBarComponent.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = state => {
-  return {};
-};
 
 const NavBar = compose(
   withFirebase,

@@ -6,6 +6,7 @@ import Login from './components/LoginComponent/LoginComponent';
 import createSagaMiddleware from 'redux-saga';
 import PostDetails from './components/PostDetailsComponent/PostDetailsComponent';
 import AddPost from './components/AddPostComponent/AddPostComponent';
+import UserDetails from './components/UserDetailsComponent/UserDetailsComponent';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as ROUTES from './constants/routes';
 import rootReducer from './state/reducers';
@@ -29,6 +30,7 @@ class App extends PureComponent {
             <Route exact path={ROUTES.MAIN_PAGE} component={MainPage} />
             <Route exact path={ROUTES.ADD_POST} component={AddPost} />
             <Route exact path={ROUTES.SINGLE_POST} component={PostDetails} />
+            <Route exact path={ROUTES.USER_DETAILS} component={UserDetails} />
           </div>
         </Router>
       </Provider>
