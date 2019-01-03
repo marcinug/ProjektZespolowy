@@ -1,5 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { compose } from 'recompose';
+import { withFirebase } from '../Firebase';
+import { withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import FilledInput from '@material-ui/core/FilledInput';
 import Select from '@material-ui/core/Select';
@@ -8,7 +10,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import './MainPageComponent.css';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
 import SinglePostComponent from '../SinglePostComponent/SinglePostComponent';
-import { Paper } from '@material-ui/core';
+import { Paper, CircularProgress } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
@@ -24,17 +26,60 @@ const styles = theme => ({
   },
 });
 
-class MainPageComponent extends React.Component {
-  state = {
-    postType: '',
+const PostsPage = () => <PostsList />;
+
+var unsubscribe = null;
+
+class PostsListBase extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      posts: [],
+      isUserLogged: false,
+      postType: '',
+    };
+  }
+
+  componentDidMount() {
+    this.props.firebase.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ isUserLogged: true });
+      } else {
+        this.props.history.push('/signin');
+      }
+    });
+    this.setState({ loading: true });
+    this.parseData();
+  }
+
+  parseData = () => {
+    let posts = [];
+    let fb = this.props.firebase;
+    unsubscribe = fb.allPosts().onSnapshot(querySnapshot => {
+      posts = [];
+      querySnapshot.forEach(doc => {
+        posts.push(Object.assign({ id: doc.id }, doc.data()));
+      });
+      posts.sort(function(a, b) {
+        return new Date(b.created) - new Date(a.created);
+      });
+      this.setState({ posts });
+      this.setState({ loading: false });
+    });
   };
 
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
+    console.log(this.state.postType);
   };
 
+  componentWillUnmount() {
+    if (unsubscribe) unsubscribe();
+  }
+
   render() {
-    const { classes, posts } = this.props;
+    const { posts, loading } = this.state;
     return (
       <div className="mainContainer">
         <AppBarComponent />
@@ -44,7 +89,7 @@ class MainPageComponent extends React.Component {
           <div className="appContainer">
             <div className="mainPageHeading">
               <h1>Ogłoszenia</h1>
-              <FormControl variant="filled" className={classes.formControl}>
+              <FormControl variant="filled">
                 <InputLabel htmlFor="filled-age-native-simple">
                   Typ postu
                 </InputLabel>
@@ -60,12 +105,20 @@ class MainPageComponent extends React.Component {
                   }
                 >
                   <option value={''} />
-                  <option value={1}>Pomogę</option>
-                  <option value={0}>Szukam pomocy</option>
+                  <option value="give">Pomogę</option>
+                  <option value="need">Szukam pomocy</option>
                 </Select>
               </FormControl>
             </div>
-            {posts[0] && posts.map(post => <SinglePostComponent post={post} key={post.id}/>)}
+            {loading ? (
+              <CircularProgress />
+            ) : (
+              <div>
+                {posts.map(post => (
+                  <SinglePostComponent post={post} key={post.id} />
+                ))}
+              </div>
+            )}
           </div>
         </Paper>
       </div>
@@ -73,8 +126,9 @@ class MainPageComponent extends React.Component {
   }
 }
 
-MainPageComponent.propTypes = {
-  posts: PropTypes.array.isRequired,
-};
+const PostsList = compose(
+  withFirebase,
+  withRouter,
+)(PostsListBase);
 
-export default withStyles(styles)(MainPageComponent);
+export default withStyles(styles)(PostsPage);
