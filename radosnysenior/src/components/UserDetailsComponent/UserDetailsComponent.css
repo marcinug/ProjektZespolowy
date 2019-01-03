@@ -33,3 +33,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.rateButton {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer;
+  background-color: #96ceb4;
+  padding: 10px 6px;
+  color: white;
+  font-weight: bold;
+}
+
+.rateButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
