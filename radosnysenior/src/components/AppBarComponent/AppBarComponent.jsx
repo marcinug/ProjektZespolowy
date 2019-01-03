@@ -11,6 +11,9 @@ import {
   MenuItem,
   Menu,
 } from '@material-ui/core';
+import { compose } from 'recompose';
+import { withFirebase } from '../Firebase';
+import { withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 // import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
@@ -45,6 +48,12 @@ class AppBarComponent extends React.Component {
     this.setState({ mobileMoreAnchorEl: null });
   };
 
+  logOut = () => {
+    let fb = this.props.firebase;
+    fb.doSignOut();
+    this.props.history.push('/');
+  };
+
   render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
@@ -60,7 +69,7 @@ class AppBarComponent extends React.Component {
         onClose={this.handleMenuClose}
       >
         <MenuItem onClick={this.handleMenuClose}>Mój profil</MenuItem>
-        <MenuItem onClick={this.handleMenuClose}>Wyloguj się</MenuItem>
+        <MenuItem onClick={this.logOut}>Wyloguj się</MenuItem>
       </Menu>
     );
 
@@ -180,4 +189,9 @@ const mapStateToProps = state => {
   return {};
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(AppBarComponent));
+const NavBar = compose(
+  withFirebase,
+  withRouter,
+)(AppBarComponent);
+
+export default withStyles(styles)(NavBar);

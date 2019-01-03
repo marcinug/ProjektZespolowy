@@ -46,7 +46,7 @@ class PostsListBase extends React.Component {
       if (user) {
         this.setState({ isUserLogged: true });
       } else {
-        this.props.history.push('/signin');
+        this.props.history.push('/');
       }
     });
     this.setState({ loading: true });
