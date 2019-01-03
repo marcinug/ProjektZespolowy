@@ -21,7 +21,6 @@ class SignInFormBase extends Component {
 
   componentWillMount() {
     this.props.firebase.auth.onAuthStateChanged(user => {
-      console.log(user);
       if (user) {
         this.props.history.push('/main');
       } else {
@@ -51,7 +50,7 @@ class SignInFormBase extends Component {
   };
 
   render() {
-    const { email, password, error, isUserLogged } = this.state;
+    const { email, password, error } = this.state;
 
     const isInvalid = password === '' || email === '';
 
