@@ -1,0 +1,13 @@
+.userRateContainer {
+  margin: 10px 0;
+  padding: 10px 20px;
+}
+
+.rateDateCreated {
+  text-align: right;
+}
+
+.rateContent {
+  text-align: left;
+  padding: 10px;
+}
