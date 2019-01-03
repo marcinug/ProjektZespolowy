@@ -8,3 +8,28 @@
   text-decoration: underline;
   color: black;
 }
+
+.addRateButton {
+  text-decoration: none;
+  color: black;
+  background-color: #96ceb4;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  width: 50%;
+  margin-top: 10px;
+}
+
+.addRateButton:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.newRateForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
