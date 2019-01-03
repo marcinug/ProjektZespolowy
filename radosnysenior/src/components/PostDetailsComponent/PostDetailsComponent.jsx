@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import * as moment from 'moment';
 import { compose } from 'recompose';
+import { Link } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import { withRouter } from 'react-router-dom';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
@@ -136,7 +137,15 @@ class PostDetailsComponent extends PureComponent {
                     <a href={`tel: ${currentPost.tel}`}>{currentPost.tel}</a>
                   </div>
                   <div className="addedBy">
-                    <div>Dodane przez: {currentPost.addedBy}</div>
+                    <div>
+                      Dodane przez:{' '}
+                      <Link
+                        to={`/users/${currentPost.addedBy}`}
+                        style={{ textDecoration: 'none', color: 'blue' }}
+                      >
+                        {currentPost.addedBy}
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <svg
