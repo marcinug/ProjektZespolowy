@@ -176,11 +176,9 @@ AppBarComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   console.log(state);
-  return {
-
-  }
-}
+  return {};
+};
 
 export default connect(mapStateToProps)(withStyles(styles)(AppBarComponent));
