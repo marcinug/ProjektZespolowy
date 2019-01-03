@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore, compose } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import MainPage from './components/MainPageComponent/MainPageComponent';
 import Login from './components/LoginComponent/LoginComponent';
 import createSagaMiddleware from 'redux-saga';
@@ -9,10 +9,6 @@ import AddPost from './components/AddPostComponent/AddPostComponent';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as ROUTES from './constants/routes';
 import rootReducer from './state/reducers';
-import thunk from 'redux-thunk';
-import { reduxFirestore, getFirestore } from 'redux-firestore';
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import fbConfig from './config/fbConfig';
 import sagas from './state/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -20,7 +16,7 @@ const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagas.forEach(sagaMiddleware.run);
 
-class App extends React.Component {
+class App extends PureComponent {
   componentDidMount() {
     document.title = 'Radosny Senior';
   }
