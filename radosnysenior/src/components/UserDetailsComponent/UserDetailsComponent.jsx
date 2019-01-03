@@ -7,6 +7,7 @@ import AppBarComponent from '../AppBarComponent/AppBarComponent';
 import './UserDetailsComponent.css';
 import { Paper } from '@material-ui/core';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
+import _ from 'lodash';
 
 const PostDetailsPage = () => <PostDetails />;
 
@@ -48,6 +49,11 @@ class PostDetailsComponent extends PureComponent {
         x => x.email === this.props.match.params.username,
       );
       this.setState({ currentUser });
+      const rates = currentUser.rates.map(arr => arr.rate);
+      console.log(rates);
+      this.setState({
+        userRating: (rates.reduce((p, c) => p + c, 0) / rates.length).toFixed(),
+      });
     });
   };
 
@@ -56,7 +62,7 @@ class PostDetailsComponent extends PureComponent {
   }
 
   render() {
-    const { currentUser, loading } = this.state;
+    const { currentUser, loading, userRating } = this.state;
     return (
       <div className="mainContainer">
         <AppBarComponent />
@@ -83,89 +89,45 @@ class PostDetailsComponent extends PureComponent {
                   </h2>
                   <h2>
                     Email:{' '}
-                    <a href={`mailto: ${currentUser.email}`}>
+                    <a
+                      className="currentUserMail"
+                      href={`mailto: ${currentUser.email}`}
+                    >
                       {currentUser.email}
                     </a>
                   </h2>
-                  <fieldset class="rating">
-                    <input type="radio" id="star5" name="rating" value="5" />
-                    <label class="full" for="star5" title="Awesome - 5 stars" />
-                    <input
-                      type="radio"
-                      id="star4half"
-                      name="rating"
-                      value="4 and a half"
-                    />
-                    <label
-                      class="half"
-                      for="star4half"
-                      title="Pretty good - 4.5 stars"
-                    />
-                    <input type="radio" id="star4" name="rating" value="4" />
-                    <label
-                      class="full"
-                      for="star4"
-                      title="Pretty good - 4 stars"
-                    />
-                    <input
-                      type="radio"
-                      id="star3half"
-                      name="rating"
-                      value="3 and a half"
-                    />
-                    <label
-                      class="half"
-                      for="star3half"
-                      title="Meh - 3.5 stars"
-                    />
-                    <input type="radio" id="star3" name="rating" value="3" />
-                    <label class="full" for="star3" title="Meh - 3 stars" />
-                    <input
-                      type="radio"
-                      id="star2half"
-                      name="rating"
-                      value="2 and a half"
-                    />
-                    <label
-                      class="half"
-                      for="star2half"
-                      title="Kinda bad - 2.5 stars"
-                    />
-                    <input type="radio" id="star2" name="rating" value="2" />
-                    <label
-                      class="full"
-                      for="star2"
-                      title="Kinda bad - 2 stars"
-                    />
-                    <input
-                      type="radio"
-                      id="star1half"
-                      name="rating"
-                      value="1 and a half"
-                    />
-                    <label
-                      class="half"
-                      for="star1half"
-                      title="Meh - 1.5 stars"
-                    />
-                    <input type="radio" id="star1" name="rating" value="1" />
-                    <label
-                      class="full"
-                      for="star1"
-                      title="Sucks big time - 1 star"
-                    />
-                    <input
-                      type="radio"
-                      id="starhalf"
-                      name="rating"
-                      value="half"
-                    />
-                    <label
-                      class="half"
-                      for="starhalf"
-                      title="Sucks big time - 0.5 stars"
-                    />
-                  </fieldset>
+                  {_.times(userRating, i => (
+                    <svg
+                      viewBox="0 0 19.481 19.481"
+                      enableBackground="new 0 0 19.481 19.481"
+                      width="48px"
+                      height="48px"
+                      key={i}
+                    >
+                      <g>
+                        <path
+                          d="m10.201,.758l2.478,5.865 6.344,.545c0.44,0.038 0.619,0.587 0.285,0.876l-4.812,4.169 1.442,6.202c0.1,0.431-0.367,0.77-0.745,0.541l-5.452-3.288-5.452,3.288c-0.379,0.228-0.845-0.111-0.745-0.541l1.442-6.202-4.813-4.17c-0.334-0.289-0.156-0.838 0.285-0.876l6.344-.545 2.478-5.864c0.172-0.408 0.749-0.408 0.921,0z"
+                          fill="#FFDA44"
+                        />
+                      </g>
+                    </svg>
+                  ))}
+                  {_.times(5 - userRating, i => (
+                    <svg
+                      viewBox="0 0 19.481 19.481"
+                      enableBackground="new 0 0 19.481 19.481"
+                      width="48px"
+                      height="48px"
+                      key={i}
+                    >
+                      <g>
+                        <path
+                          d="m10.201,.758l2.478,5.865 6.344,.545c0.44,0.038 0.619,0.587 0.285,0.876l-4.812,4.169 1.442,6.202c0.1,0.431-0.367,0.77-0.745,0.541l-5.452-3.288-5.452,3.288c-0.379,0.228-0.845-0.111-0.745-0.541l1.442-6.202-4.813-4.17c-0.334-0.289-0.156-0.838 0.285-0.876l6.344-.545 2.478-5.864c0.172-0.408 0.749-0.408 0.921,0z"
+                          fill="black"
+                        />
+                      </g>
+                    </svg>
+                  ))}
                 </div>
               </Paper>
             </React.Fragment>
