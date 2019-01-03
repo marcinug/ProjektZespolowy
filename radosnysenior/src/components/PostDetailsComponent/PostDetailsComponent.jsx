@@ -52,7 +52,6 @@ class PostDetailsComponent extends PureComponent {
       this.setState({ loading: false });
       const currentPost = posts.find(x => x.id === this.props.match.params.id);
       this.setState({ currentPost });
-      console.log(this.state.currentPost.id);
     });
   };
 
@@ -144,11 +143,10 @@ class PostDetailsComponent extends PureComponent {
                   aria-hidden="true"
                   data-prefix="far"
                   data-icon="comment"
-                  className="svg-inline--fa fa-comment fa-w-16"
+                  className="svg-inline--fa fa-comment fa-w-16 commentIcon"
                   role="img"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
-                  className="commentIcon"
                   fontSize="15px"
                   onClick={() => this.toggleCommentVisible()}
                 >

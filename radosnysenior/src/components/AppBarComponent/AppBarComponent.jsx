@@ -177,7 +177,6 @@ AppBarComponent.propTypes = {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {};
 };
 
