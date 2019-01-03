@@ -23,6 +23,8 @@ class Firebase {
 
   allPosts = () => this.fs.collection('posts');
 
+  allUsers = () => this.fs.collection('users');
+
   addPost = post =>
     this.fs
       .collection('posts')
