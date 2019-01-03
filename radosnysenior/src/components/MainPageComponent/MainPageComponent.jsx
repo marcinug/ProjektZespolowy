@@ -3,14 +3,17 @@ import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import { withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
-import FilledInput from '@material-ui/core/FilledInput';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
 import './MainPageComponent.css';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
 import SinglePostComponent from '../SinglePostComponent/SinglePostComponent';
-import { Paper, CircularProgress } from '@material-ui/core';
+import {
+  Paper,
+  CircularProgress,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+} from '@material-ui/core';
 
 const styles = theme => ({
   root: {
@@ -70,8 +73,19 @@ class PostsListBase extends React.Component {
   };
 
   handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-    console.log(this.state.postType);
+    const chosenType = event.target.value;
+    this.setState({ [name]: chosenType });
+    console.log(event.target.value);
+
+    if (chosenType === '') {
+      return;
+    } else {
+      let posts = this.state.posts;
+      const filteredPosts = posts.filter(function(post) {
+        return post.type === chosenType;
+      });
+      this.setState({ posts: filteredPosts });
+    }
   };
 
   componentWillUnmount() {
@@ -89,24 +103,21 @@ class PostsListBase extends React.Component {
           <div className="appContainer">
             <div className="mainPageHeading">
               <h1>Ogłoszenia</h1>
-              <FormControl variant="filled">
+              <FormControl variant="filled" style={{ width: '250px' }}>
                 <InputLabel htmlFor="filled-age-native-simple">
                   Typ postu
                 </InputLabel>
                 <Select
-                  native
                   value={this.state.postType}
                   onChange={this.handleChange('postType')}
-                  input={
-                    <FilledInput
-                      name="postType"
-                      id="filled-age-native-simple"
-                    />
-                  }
+                  inputProps={{
+                    name: 'postType',
+                    id: 'postType',
+                  }}
                 >
-                  <option value={''} />
-                  <option value="give">Pomogę</option>
-                  <option value="need">Szukam pomocy</option>
+                  <MenuItem value={''} />
+                  <MenuItem value="give">Pomogę</MenuItem>
+                  <MenuItem value="need">Szukam pomocy</MenuItem>
                 </Select>
               </FormControl>
             </div>
