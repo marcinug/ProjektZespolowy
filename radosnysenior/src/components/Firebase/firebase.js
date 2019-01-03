@@ -36,6 +36,12 @@ class Firebase {
       .collection('posts')
       .doc(id)
       .update({ comments: comments });
+
+  addNewUserRate = (id, rates) =>
+    this.fs
+      .collection('users')
+      .doc(id)
+      .update({ rates: rates });
 }
 
 export default Firebase;
