@@ -21,6 +21,8 @@ class AddPostComponent extends PureComponent {
   state = {
     addedBy: '',
     comments: [],
+    city: '',
+    province: '',
     type: '',
     cost: '',
     price: '',
@@ -143,6 +145,49 @@ class AddPostComponent extends PureComponent {
                 value={this.state.description}
                 onChange={this.handleChange('description')}
                 margin="normal"
+              />
+              <InputLabel className="selectInput" htmlFor="province">
+                Województwo
+              </InputLabel>
+              <Select
+                value={this.state.province}
+                onChange={this.handleChange('province')}
+                inputProps={{
+                  name: 'province',
+                  id: 'province',
+                }}
+              >
+                <MenuItem value="" />
+                <MenuItem value="dolnośląskie">dolnośląskie</MenuItem>
+                <MenuItem value="kujawsko-pomorskie">
+                  kujawsko-pomorskie
+                </MenuItem>
+                <MenuItem value="lubelskie">lubelskie</MenuItem>
+                <MenuItem value="lubuskie">lubuskie</MenuItem>
+                <MenuItem value="łódzkie">łódzkie</MenuItem>
+                <MenuItem value="małopolskie">małopolskie</MenuItem>
+                <MenuItem value="mazowieckie">mazowieckie</MenuItem>
+                <MenuItem value="opolskie">opolskie</MenuItem>
+                <MenuItem value="podkarpackie">podkarpackie</MenuItem>
+                <MenuItem value="podlaskie">podlaskie</MenuItem>
+                <MenuItem value="pomorskie">pomorskie</MenuItem>
+                <MenuItem value="śląskie">śląskie</MenuItem>
+                <MenuItem value="świętokrzyskie">świętokrzyskie</MenuItem>
+                <MenuItem value="warmińsko-mazurskie">
+                  warmińsko-mazurskie
+                </MenuItem>
+                <MenuItem value="wielkopolskie">wielkopolskie</MenuItem>
+                <MenuItem value="zachodniopomorskie">
+                  zachodniopomorskie
+                </MenuItem>
+              </Select>
+              <TextField
+                id="standard-name"
+                label="Miejscowość"
+                value={this.state.city}
+                onChange={this.handleChange('city')}
+                margin="normal"
+                type="text"
               />
               <span
                 className="formSentButton"
