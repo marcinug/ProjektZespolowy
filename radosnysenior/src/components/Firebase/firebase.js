@@ -31,6 +31,12 @@ class Firebase {
       .doc()
       .set(post);
 
+  addUserToDatabase = user =>
+    this.fs
+      .collection('users')
+      .doc()
+      .set(user);
+
   addComment = (id, comments) =>
     this.fs
       .collection('posts')
