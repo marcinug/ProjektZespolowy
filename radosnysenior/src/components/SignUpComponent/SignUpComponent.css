@@ -1,0 +1,43 @@
+.signUpContainer {
+  background: url('../../assets/img/loginBackground.jpg') center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-size: cover;
+  display: flex;
+}
+
+.signUpCard {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+}
+
+.signUpButton {
+  background-color: #96ceb4 !important;
+  color: white !important;
+  text-decoration: none;
+}
+
+.backToLoginButton {
+  font-weight: bold;
+  width: 100%;
+}
+
+.backToLoginButton:hover {
+  color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.text-error {
+  color: red;
+}
