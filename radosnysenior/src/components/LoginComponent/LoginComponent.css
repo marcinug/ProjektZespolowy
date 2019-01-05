@@ -17,8 +17,18 @@
 }
 
 .loginButton {
-  background-color: darkcyan;
-  color: red;
+  background-color: #96ceb4 !important;
+  color: white !important;
+  text-decoration: none;
+}
+
+.newUserButton {
+  font-weight: bold;
+  width: 100%;
+}
+
+.newUserButton:hover {
+  color: black;
 }
 
 form {

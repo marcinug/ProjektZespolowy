@@ -3,7 +3,7 @@ import { withFirebase } from '../Firebase';
 import { compose } from 'recompose';
 import './LoginComponent.css';
 import { Button, Card, TextField } from '@material-ui/core';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const SignInPage = () => <SignInForm />;
 
@@ -38,7 +38,7 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push('/products');
+        this.props.history.push('/main');
       })
       .catch(error => {
         this.setState({ error });
@@ -75,9 +75,17 @@ class SignInFormBase extends Component {
               onChange={this.onChange}
               id="password"
             />
-            <Button color="primary" disabled={isInvalid} type="submit">
+            <Button className="loginButton" disabled={isInvalid} type="submit">
               Zaloguj
             </Button>
+            <Link
+              to="/signup"
+              style={{ textDecoration: 'none', color: 'white' }}
+            >
+              <Button className="newUserButton" color="primary">
+                Nie mam konta
+              </Button>
+            </Link>
             {error && <p className="text-error">{error.message}</p>}
           </form>
         </Card>
