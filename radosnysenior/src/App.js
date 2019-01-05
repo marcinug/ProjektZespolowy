@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import MainPage from './components/MainPageComponent/MainPageComponent';
 import Login from './components/LoginComponent/LoginComponent';
+import SignUp from './components/SignUpComponent/SignUpComponent';
 import createSagaMiddleware from 'redux-saga';
 import PostDetails from './components/PostDetailsComponent/PostDetailsComponent';
 import AddPost from './components/AddPostComponent/AddPostComponent';
@@ -31,6 +32,7 @@ class App extends PureComponent {
             <Route exact path={ROUTES.ADD_POST} component={AddPost} />
             <Route exact path={ROUTES.SINGLE_POST} component={PostDetails} />
             <Route exact path={ROUTES.USER_DETAILS} component={UserDetails} />
+            <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
           </div>
         </Router>
       </Provider>
