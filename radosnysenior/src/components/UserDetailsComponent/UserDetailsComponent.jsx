@@ -82,7 +82,7 @@ class PostDetailsComponent extends PureComponent {
     const fb = this.props.firebase;
     const currTime = moment().format();
     const rate = {
-      addedBy: this.state.currentUser.email,
+      addedBy: this.state.loggedUser,
       created: currTime,
       content: this.state.newRateRateContent,
       rate: this.state.newRateRate,

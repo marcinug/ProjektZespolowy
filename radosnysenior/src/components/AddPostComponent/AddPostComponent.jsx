@@ -45,7 +45,7 @@ class AddPostComponent extends PureComponent {
   }
 
   handleSubmit = () => {
-    let fb = this.props.firebase;
+    const fb = this.props.firebase;
     fb.addPost(this.state);
     this.props.history.push('/main');
   };

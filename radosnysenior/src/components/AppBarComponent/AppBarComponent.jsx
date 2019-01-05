@@ -62,10 +62,6 @@ class AppBarComponent extends React.Component {
     this.props.history.push('/');
   };
 
-  myProfile = () => {
-    this.props.history.push(`/users/${this.state.currentUser}`);
-  };
-
   render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
@@ -80,7 +76,12 @@ class AppBarComponent extends React.Component {
         open={isMenuOpen}
         onClose={this.handleMenuClose}
       >
-        <MenuItem onClick={this.myProfile}>Mój profil</MenuItem>
+        <Link
+          to={`/users/${this.state.currentUser}`}
+          style={{ textDecoration: 'none' }}
+        >
+          <MenuItem>Mój profil</MenuItem>
+        </Link>
         <MenuItem onClick={this.logOut}>Wyloguj się</MenuItem>
       </Menu>
     );
