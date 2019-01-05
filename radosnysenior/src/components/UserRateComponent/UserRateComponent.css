@@ -11,3 +11,8 @@
   text-align: left;
   padding: 10px;
 }
+
+.userRateComment {
+  margin: 0 5%;
+  border-radius: 20px !important;
+}

@@ -104,14 +104,7 @@ class PostDetailsComponent extends PureComponent {
         ) : (
           currentUser && (
             <React.Fragment>
-              <Paper
-                style={{
-                  marginLeft: '2%',
-                  marginRight: '2%',
-                  paddingBottom: 20,
-                }}
-                className="paperPostContainer"
-              >
+              <Paper className="paperContainer paperPostContainer">
                 <div className="userDetailsContainer">
                   <h1>Użytkownik: {currentUser.email}</h1>
                   <h2>Imię: {currentUser.firstName}</h2>
@@ -160,16 +153,12 @@ class PostDetailsComponent extends PureComponent {
                     value={this.state.newRateRateContent}
                     onChange={this.handleNewRate('newRateRateContent')}
                     margin="normal"
-                    style={{
-                      width: '50%',
-                    }}
+                    className="rateOtherUserInput"
                   />
                   <Select
                     value={this.state.newRateRate}
                     onChange={this.handleNewRate('newRateRate')}
-                    style={{
-                      width: '50%',
-                    }}
+                    className="rateOtherUserInput"
                   >
                     <MenuItem value="" />
                     <MenuItem value={1}>1</MenuItem>

@@ -5,13 +5,10 @@ import './SingleCommentComponent.css';
 import { Paper } from '@material-ui/core';
 
 const SingleCommentComponent = ({ comment }) => (
-  <Paper style={{ borderRadius: '20px' }}>
+  <Paper className="singleCommentPaperContainer">
     <div className="singleCommentContainer">
       <div className="commentDateCreated">
-        <Link
-          to={`/users/${comment.addedBy}`}
-          style={{ textDecoration: 'none', color: 'blue' }}
-        >
+        <Link to={`/users/${comment.addedBy}`} className="reactRouterBlueLink">
           {comment.addedBy}
         </Link>
         ; {moment(comment.created).format('DD.MM.YYYY, HH:mm')}

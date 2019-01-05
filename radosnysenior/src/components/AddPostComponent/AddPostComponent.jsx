@@ -65,9 +65,7 @@ class AddPostComponent extends PureComponent {
     return (
       <div className="mainContainer">
         <AppBarComponent />
-        <Paper
-          style={{ marginLeft: '2%', marginRight: '2%', paddingBottom: 20 }}
-        >
+        <Paper className="paperContainer">
           <div className="appContainer">
             <div className="mainPageHeading">
               <h1>Dodaj post</h1>

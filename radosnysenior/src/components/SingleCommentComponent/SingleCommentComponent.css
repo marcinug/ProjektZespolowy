@@ -3,6 +3,10 @@
   padding: 10px 20px;
 }
 
+.singleCommentPaperContainer {
+  border-radius: 20px !important;
+}
+
 .commentDateCreated {
   text-align: right;
 }

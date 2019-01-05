@@ -131,7 +131,7 @@ class SignInFormBase extends Component {
             <Button className="signUpButton" disabled={isInvalid} type="submit">
               Zarejestruj się
             </Button>
-            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+            <Link to="/" className="reactRouterLink">
               <Button className="backToLoginButton" color="primary">
                 Mam konto - zaloguj się
               </Button>

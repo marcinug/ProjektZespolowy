@@ -78,7 +78,7 @@ class AppBarComponent extends React.Component {
       >
         <Link
           to={`/users/${this.state.currentUser}`}
-          style={{ textDecoration: 'none' }}
+          className="reactRouterLink"
         >
           <MenuItem>Mój profil</MenuItem>
         </Link>
@@ -130,7 +130,7 @@ class AppBarComponent extends React.Component {
             >
               <MenuIcon />
             </IconButton> */}
-            <Link to="/main" style={{ textDecoration: 'none', color: 'white' }}>
+            <Link to="/main" className="reactRouterLink">
               <Typography
                 className={classes.title}
                 variant="h6"
@@ -154,10 +154,7 @@ class AppBarComponent extends React.Component {
             </div>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              <Link
-                to="/add"
-                style={{ textDecoration: 'none', color: 'white' }}
-              >
+              <Link to="/add" className="reactRouterLink">
                 <IconButton color="inherit">
                   <span className="addPostButton">+</span>
                 </IconButton>

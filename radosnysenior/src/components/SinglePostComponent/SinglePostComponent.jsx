@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './SinglePostComponent.css';
 
 const SinglePostComponent = ({ post }) => (
-  <Link to={`/posts/${post.id}`} style={{ textDecoration: 'none' }}>
+  <Link to={`/posts/${post.id}`} className="reactRouterLink">
     <div
       className={post.type === 'need' ? 'singlePost need' : 'singlePost give'}
     >

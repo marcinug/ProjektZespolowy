@@ -103,14 +103,7 @@ class PostDetailsComponent extends PureComponent {
         ) : (
           currentPost && (
             <React.Fragment>
-              <Paper
-                style={{
-                  marginLeft: '2%',
-                  marginRight: '2%',
-                  paddingBottom: 20,
-                }}
-                className="paperPostContainer"
-              >
+              <Paper className="paperContainer paperPostContainer">
                 <div className="appContainer">
                   <div className="mainPageHeading">
                     <h1>Ogłoszenie nr {currentPost.id}</h1>
@@ -141,7 +134,7 @@ class PostDetailsComponent extends PureComponent {
                       Dodane przez:{' '}
                       <Link
                         to={`/users/${currentPost.addedBy}`}
-                        style={{ textDecoration: 'none', color: 'blue' }}
+                        className="reactRouterBlueLink"
                       >
                         {currentPost.addedBy}
                       </Link>
@@ -173,9 +166,7 @@ class PostDetailsComponent extends PureComponent {
                       value={this.state.comment}
                       onChange={this.handleChange('comment')}
                       margin="normal"
-                      style={{
-                        width: '98%',
-                      }}
+                      className="commentTextField"
                     />
                     <span
                       className="addCommentButton"

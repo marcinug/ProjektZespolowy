@@ -5,3 +5,20 @@
 .mainContainer header {
   background-color: #96ceb4;
 }
+
+.reactRouterLink {
+  text-decoration: none;
+  border: 0;
+  color: white;
+}
+
+.paperContainer {
+  margin: 0 2% 20px;
+  padding-bottom: 20px;
+}
+
+.reactRouterBlueLink {
+  text-decoration: none;
+  border: 0;
+  color: blue;
+}

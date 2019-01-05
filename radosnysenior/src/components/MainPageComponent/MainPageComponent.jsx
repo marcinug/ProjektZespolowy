@@ -97,13 +97,11 @@ class PostsListBase extends React.Component {
     return (
       <div className="mainContainer">
         <AppBarComponent />
-        <Paper
-          style={{ marginLeft: '2%', marginRight: '2%', paddingBottom: 20 }}
-        >
+        <Paper className="paperContainer">
           <div className="appContainer">
             <div className="mainPageHeading">
               <h1>Ogłoszenia</h1>
-              <FormControl variant="filled" style={{ width: '250px' }}>
+              <FormControl variant="filled" className="postTypeSelect">
                 <InputLabel htmlFor="filled-age-native-simple">
                   Typ postu
                 </InputLabel>
