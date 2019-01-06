@@ -33,6 +33,12 @@ class Firebase {
       .doc()
       .set(post);
 
+  addEvent = event =>
+    this.fs
+      .collection('events')
+      .doc()
+      .set(event);
+
   addUserToDatabase = user =>
     this.fs
       .collection('users')
