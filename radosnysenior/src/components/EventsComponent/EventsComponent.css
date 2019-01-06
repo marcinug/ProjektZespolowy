@@ -1,0 +1,21 @@
+.eventsHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.eventsHeading__button {
+  background: #d6f3fa;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+.reactRouterLinkEvents:hover {
+  opacity: 0.8;
+  color: black;
+}
+
+.reactRouterLinkEvents {
+  text-decoration: none;
+  color: black;
+}
