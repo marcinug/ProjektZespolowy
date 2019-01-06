@@ -17,9 +17,7 @@ const SingleEventComponent = ({ event }) => (
       ).format('DD.MM.YYYY, HH:mm')}`}</div>
       <div className="participants">
         UCZESTNICY
-        {event.participants
-          ? ` (${event.participants.length}): ${event.participants.join(', ')}`
-          : ': 0'}
+        {event.participants ? `: ${event.participants.length}` : ': 0'}
       </div>
     </div>
   </Link>

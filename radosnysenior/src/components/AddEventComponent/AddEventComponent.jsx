@@ -75,7 +75,7 @@ class AddEventComponent extends PureComponent {
         <Paper className="paperContainer">
           <div className="appContainer">
             <div className="mainPageHeading">
-              <h1>Dodaj post</h1>
+              <h1>Dodaj wydarzenie</h1>
             </div>
             <div className="addEventFormContainer">
               <TextField

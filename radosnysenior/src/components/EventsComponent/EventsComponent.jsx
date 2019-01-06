@@ -43,7 +43,7 @@ class EventsComponent extends React.Component {
         events.push(Object.assign({ id: doc.id }, doc.data()));
       });
       events.sort(function(a, b) {
-        return new Date(b.date) - new Date(a.date);
+        return new Date(a.date) - new Date(b.date);
       });
       this.setState({ events });
       this.setState({ loading: false });

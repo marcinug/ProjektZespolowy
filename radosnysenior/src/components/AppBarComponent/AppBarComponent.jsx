@@ -6,7 +6,6 @@ import {
   IconButton,
   Typography,
   InputBase,
-  Badge,
   MenuItem,
   Menu,
 } from '@material-ui/core';
@@ -17,7 +16,6 @@ import { withStyles } from '@material-ui/core/styles';
 // import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import BookIcon from '@material-ui/icons/Book';
 import CalendarToday from '@material-ui/icons/CalendarToday';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { styles } from './AppBarOwnStyles';
