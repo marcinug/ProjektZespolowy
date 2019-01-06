@@ -12,6 +12,24 @@
   color: white;
 }
 
+.mainContainer {
+  text-align: center;
+}
+
+.appContainer {
+  width: 90%;
+  margin: 2% auto;
+}
+
+.paperPostContainer {
+  position: relative;
+}
+
+.mainPageHeading {
+  display: flex;
+  justify-content: space-between;
+}
+
 .paperContainer {
   margin: 0 2% 20px;
   padding-bottom: 20px;
@@ -20,5 +38,10 @@
 .reactRouterBlueLink {
   text-decoration: none;
   border: 0;
-  color: blue;
+  color: cornflowerblue;
+}
+
+.reactRouterBlueLink:hover {
+  font-weight: bold;
+  opacity: 0.8;
 }

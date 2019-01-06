@@ -6,6 +6,7 @@ import Login from './components/LoginComponent/LoginComponent';
 import SignUp from './components/SignUpComponent/SignUpComponent';
 import createSagaMiddleware from 'redux-saga';
 import PostDetails from './components/PostDetailsComponent/PostDetailsComponent';
+import EventDetails from './components/EventDetailsComponent/EventDetailsComponent';
 import AddPost from './components/AddPostComponent/AddPostComponent';
 import UserDetails from './components/UserDetailsComponent/UserDetailsComponent';
 import Events from './components/EventsComponent/EventsComponent';
@@ -37,6 +38,7 @@ class App extends PureComponent {
             <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
             <Route exact path={ROUTES.EVENTS} component={Events} />
             <Route exact path={ROUTES.ADD_EVENT} component={AddEvent} />
+            <Route exact path={ROUTES.SINGLE_EVENT} component={EventDetails} />
           </div>
         </Router>
       </Provider>
