@@ -94,22 +94,14 @@ class AppBarComponent extends React.Component {
         open={isMobileMenuOpen}
         onClose={this.handleMobileMenuClose}
       >
-        <MenuItem>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <BookIcon />
-            </Badge>
-          </IconButton>
-          <p>Ogłoszenia</p>
-        </MenuItem>
-        <MenuItem>
-          <IconButton color="inherit">
-            <Badge badgeContent={11} color="secondary">
+        <Link to="/events" className="reactRouterLink">
+          <MenuItem>
+            <IconButton color="inherit">
               <CalendarToday />
-            </Badge>
-          </IconButton>
-          <p>Wydarzenia</p>
-        </MenuItem>
+            </IconButton>
+            <p>Wydarzenia</p>
+          </MenuItem>
+        </Link>
         <MenuItem onClick={this.handleProfileMenuOpen}>
           <IconButton color="inherit">
             <AccountCircle />
@@ -159,11 +151,11 @@ class AppBarComponent extends React.Component {
                   <span className="addPostButton">+</span>
                 </IconButton>
               </Link>
-              <IconButton color="inherit">
-                <Badge badgeContent={17} color="secondary">
+              <Link to="/events" className="reactRouterLink">
+                <IconButton color="inherit">
                   <CalendarToday />
-                </Badge>
-              </IconButton>
+                </IconButton>
+              </Link>
               <IconButton
                 aria-owns={isMenuOpen ? 'material-appbar' : undefined}
                 aria-haspopup="true"

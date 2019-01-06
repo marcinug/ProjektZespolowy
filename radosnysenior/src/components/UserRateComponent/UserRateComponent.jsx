@@ -1,6 +1,6 @@
 import React from 'react';
 import * as moment from 'moment';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './UserRateComponent.css';
 import { Paper } from '@material-ui/core';
 import _ from 'lodash';
@@ -28,4 +28,4 @@ const UserRateComponent = ({ rate }) => (
   </Paper>
 );
 
-export default UserRateComponent;
+export default withRouter(UserRateComponent);

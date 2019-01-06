@@ -106,7 +106,7 @@ class PostDetailsComponent extends PureComponent {
               <Paper className="paperContainer paperPostContainer">
                 <div className="appContainer">
                   <div className="mainPageHeading">
-                    <h1>Ogłoszenie nr {currentPost.id}</h1>
+                    <h1>{currentPost.heading}</h1>
                   </div>
                   <div className="postHeading">
                     <div />
@@ -114,7 +114,7 @@ class PostDetailsComponent extends PureComponent {
                       {currentPost.heading}
                     </div>
                     <div>
-                      {moment(currentPost.created).format('DD.MM.YYYY, hh:mm')}
+                      {currentPost.city}, {currentPost.province}
                     </div>
                   </div>
                   <div className="postDescription">
@@ -129,6 +129,12 @@ class PostDetailsComponent extends PureComponent {
                     </a>
                     <a href={`tel: ${currentPost.tel}`}>{currentPost.tel}</a>
                   </div>
+                  <div className="price">
+                    TYP:{' '}
+                    {currentPost.cost === 'free'
+                      ? 'WOLONTARIAT'
+                      : `PŁATNE: ${currentPost.price} zł`}
+                  </div>
                   <div className="addedBy">
                     <div>
                       Dodane przez:{' '}
@@ -138,6 +144,8 @@ class PostDetailsComponent extends PureComponent {
                       >
                         {currentPost.addedBy}
                       </Link>
+                      ;{' '}
+                      {moment(currentPost.created).format('DD.MM.YYYY, HH:mm')}
                     </div>
                   </div>
                 </div>

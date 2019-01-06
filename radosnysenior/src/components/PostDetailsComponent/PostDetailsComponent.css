@@ -47,6 +47,13 @@ a:hover {
   text-align: right;
 }
 
+.price {
+  padding-top: 20px;
+  padding-bottom: -10px;
+  text-align: right;
+  font-weight: bold;
+}
+
 .commentsContaner {
   width: 85%;
   margin: 15px 2% 15px auto;
