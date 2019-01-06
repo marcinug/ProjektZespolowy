@@ -13,7 +13,8 @@
 9. Rozpoczęcie pracy nad przygotowaniem API</br>
 10. Przygotowanie kolejnych widoków, w tym formularzy</br>
 11. Podpięcie API do aplikacji</br>
-12. ...
+12. Testy i poprawa błędów</br>
+13. Dokumentacja</br>
 
 ## https://trello.com/b/4Pfty3Yx/radosny-senior
 
@@ -21,8 +22,6 @@
 
 Marcin Mokrzan </br>
 Jakub Lemka </br>
-
-## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
