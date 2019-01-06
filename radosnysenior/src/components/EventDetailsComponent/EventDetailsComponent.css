@@ -28,3 +28,37 @@
 .eventDescription {
   padding: 10px 0;
 }
+
+.takePartSymbol {
+  color: greenyellow;
+  padding-right: 10px;
+}
+
+.doNotTakePartSymbol {
+  color: red;
+  padding-right: 10px;
+}
+
+.toggleTakePartButton {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer;
+  background-color: #96ceb4;
+  padding: 10px 6px;
+  color: white;
+  font-weight: bold;
+}
+
+.toggleTakePartButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.toggleTakePartButton__yes:hover {
+  color: greenyellow;
+}
+
+.toggleTakePartButton__no:hover {
+  color: red;
+}

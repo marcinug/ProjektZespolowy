@@ -56,6 +56,12 @@ class Firebase {
       .collection('users')
       .doc(id)
       .update({ rates: rates });
+
+  toggleParticipation = (id, participator) =>
+    this.fs
+      .collection('events')
+      .doc(id)
+      .update({ participants: participator });
 }
 
 export default Firebase;

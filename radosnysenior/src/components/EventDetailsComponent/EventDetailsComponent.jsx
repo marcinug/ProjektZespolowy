@@ -54,12 +54,28 @@ class EventDetailsComponent extends PureComponent {
     });
   };
 
+  takePart = () => {
+    const fb = this.props.firebase;
+    fb.toggleParticipation(this.props.match.params.id, [
+      ...this.state.currentEvent.participants,
+      this.state.currentUser,
+    ]);
+  };
+
+  doNotTakePart = () => {
+    const fb = this.props.firebase;
+    const newArr = this.state.currentEvent.participants.filter(
+      item => item !== this.state.currentUser,
+    );
+    fb.toggleParticipation(this.props.match.params.id, newArr);
+  };
+
   componentWillUnmount() {
     if (unsubscribe) unsubscribe();
   }
 
   render() {
-    const { currentEvent, loading } = this.state;
+    const { currentEvent, loading, currentUser } = this.state;
     return (
       <div className="mainContainer">
         <AppBarComponent />
@@ -111,6 +127,27 @@ class EventDetailsComponent extends PureComponent {
                     </div>
                   </div>
                 </div>
+                {currentEvent.participants.includes(currentUser) ? (
+                  <span
+                    className="toggleTakePartButton toggleTakePartButton__no"
+                    role="button"
+                    aria-hidden
+                    onClick={this.doNotTakePart}
+                  >
+                    <span className="doNotTakePartSymbol">&#10006;</span> NIE
+                    BIORĘ UDZIAŁU
+                  </span>
+                ) : (
+                  <span
+                    className="toggleTakePartButton toggleTakePartButton__yes"
+                    role="button"
+                    aria-hidden
+                    onClick={this.takePart}
+                  >
+                    <span className="takePartSymbol"> &#10004;</span>BIORĘ
+                    UDZIAŁ
+                  </span>
+                )}
               </Paper>
             </React.Fragment>
           )
