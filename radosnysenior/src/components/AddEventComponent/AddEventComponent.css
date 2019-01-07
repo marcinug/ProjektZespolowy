@@ -19,9 +19,22 @@
   margin-top: 25px;
 }
 
-/*!
- * https://github.com/YouCanBookMe/react-datetime
- */
+.rdt input.form-control {
+  width: 100%;
+  border: 0;
+  margin-top: 8px;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .addEventFormContainer {
+    width: 100%;
+  }
+
+  .rdt input {
+    width: 100%;
+  }
+}
 
 .rdt {
   position: relative;
@@ -131,11 +144,11 @@
 .rdtPrev span,
 .rdtNext span {
   display: block;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Chrome/Safari/Opera */
-  -khtml-user-select: none; /* Konqueror */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -207,11 +220,11 @@ td.rdtYear:hover {
   cursor: pointer;
   display: block;
 
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Chrome/Safari/Opera */
-  -khtml-user-select: none; /* Konqueror */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 .rdtCounter .rdtBtn:hover {

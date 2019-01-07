@@ -25,3 +25,9 @@
   margin-right: 10px;
   border-radius: 5px;
 }
+
+@media (max-width: 960px) {
+  .addPostButton {
+    padding: 0 5px;
+  }
+}

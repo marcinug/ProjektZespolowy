@@ -9,7 +9,7 @@ const SinglePostComponent = ({ post }) => (
       className={post.type === 'need' ? 'singlePost need' : 'singlePost give'}
     >
       <div className="postHeading">
-        <div />
+        <div className="emptyDiv" />
         <div className="postHeading__heading">{post.heading}</div>
 
         <div>{`${post.city}, ${post.province}`}</div>

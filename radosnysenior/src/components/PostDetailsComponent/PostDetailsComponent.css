@@ -74,3 +74,9 @@
 .commentTextField {
   width: 98%;
 }
+
+@media (max-width: 768px) {
+  .addedBy {
+    padding-bottom: 20px;
+  }
+}

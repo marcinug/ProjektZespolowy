@@ -61,7 +61,7 @@ class EventsComponent extends React.Component {
         <AppBarComponent />
         <Paper className="paperContainer">
           <div className="appContainer">
-            <div className="mainPageHeading eventsHeading">
+            <div className="mainPageHeading eventsHeading allEventsHeading">
               <h1>Wydarzenia</h1>
               <Link to="/newEvent" className="reactRouterLinkEvents">
                 <span

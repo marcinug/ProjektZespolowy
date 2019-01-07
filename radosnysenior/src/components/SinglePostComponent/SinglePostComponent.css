@@ -39,3 +39,34 @@
   text-align: right;
   font-size: 0.85rem;
 }
+
+@media (max-width: 768px) {
+  .emptyDiv {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .singlePost {
+    margin: 5px 0;
+    padding: 5px;
+  }
+
+  .emptyDiv {
+    display: none;
+  }
+
+  .postHeading {
+    font-size: 1rem;
+    padding-bottom: 5px;
+  }
+
+  .postDescription {
+    font-size: 0.85rem;
+  }
+
+  .postAddedBy {
+    text-align: right;
+    font-size: 0.85rem;
+  }
+}

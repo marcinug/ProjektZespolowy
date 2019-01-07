@@ -120,7 +120,11 @@ class AppBarComponent extends React.Component {
         <AppBar position="static">
           <Toolbar>
             <Link to="/main" className="reactRouterLink">
-              <img src={logoImage} className="appBarLogo" />
+              <img
+                src={logoImage}
+                className="appBarLogo"
+                alt="Radosny senior logo"
+              />
             </Link>
             <Link to="/main" className="reactRouterLink">
               <Typography
