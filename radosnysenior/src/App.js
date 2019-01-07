@@ -11,7 +11,7 @@ import AddPost from './components/AddPostComponent/AddPostComponent';
 import UserDetails from './components/UserDetailsComponent/UserDetailsComponent';
 import Events from './components/EventsComponent/EventsComponent';
 import AddEvent from './components/AddEventComponent/AddEventComponent';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import * as ROUTES from './constants/routes';
 import rootReducer from './state/reducers';
 import sagas from './state/sagas';
@@ -41,6 +41,7 @@ class App extends PureComponent {
             <Route exact path={ROUTES.EVENTS} component={Events} />
             <Route exact path={ROUTES.ADD_EVENT} component={AddEvent} />
             <Route exact path={ROUTES.SINGLE_EVENT} component={EventDetails} />
+            <Route render={() => <Redirect to={ROUTES.MAIN_PAGE} />} />
           </div>
         </Router>
       </Provider>
