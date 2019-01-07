@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as ROUTES from './constants/routes';
 import rootReducer from './state/reducers';
 import sagas from './state/sagas';
+import vers from '../package.json';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
@@ -30,6 +31,7 @@ class App extends PureComponent {
       <Provider store={store}>
         <Router>
           <div>
+            <p className="version">v.: {vers.version}</p>
             <Route exact path={ROUTES.LOGIN} component={Login} />
             <Route exact path={ROUTES.MAIN_PAGE} component={MainPage} />
             <Route exact path={ROUTES.ADD_POST} component={AddPost} />
