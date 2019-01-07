@@ -54,7 +54,6 @@ class AddPostComponent extends PureComponent {
     this.setState({
       [name]: event.target.value,
     });
-    console.log(this.state.type);
   };
 
   componentWillUnmount() {

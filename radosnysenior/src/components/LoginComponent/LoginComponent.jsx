@@ -19,7 +19,7 @@ class SignInFormBase extends Component {
     this.state = { ...INITIAL_STATE, isUserLogged: true };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.firebase.auth.onAuthStateChanged(user => {
       if (user) {
         this.props.history.push('/main');

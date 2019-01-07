@@ -34,25 +34,19 @@ const PostsPage = () => <PostsList />;
 var unsubscribe = null;
 
 class PostsListBase extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false,
-      posts: [],
-      isUserLogged: false,
-      postType: '',
-    };
-  }
+  state = {
+    loading: false,
+    posts: [],
+    postType: '',
+  };
 
   componentDidMount() {
     this.props.firebase.auth.onAuthStateChanged(user => {
       if (user) {
-        this.setState({ isUserLogged: true });
       } else {
         this.props.history.push('/');
       }
     });
-    this.setState({ loading: true });
     this.parseData();
   }
 
@@ -75,7 +69,6 @@ class PostsListBase extends React.Component {
   handleChange = name => event => {
     const chosenType = event.target.value;
     this.setState({ [name]: chosenType });
-    console.log(event.target.value);
 
     if (chosenType === '') {
       this.parseData();

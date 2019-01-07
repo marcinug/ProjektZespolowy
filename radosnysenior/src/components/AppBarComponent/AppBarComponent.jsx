@@ -20,19 +20,28 @@ import './AppBarComponent.css';
 import logoImage from '../../assets/img/icon.png';
 
 class AppBarComponent extends React.Component {
+  _isMounted = false;
+
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null,
   };
 
   componentDidMount() {
+    this._isMounted = true;
     this.props.firebase.auth.onAuthStateChanged(user => {
       if (user) {
-        this.setState({ currentUser: user.email });
+        if (this._isMounted) {
+          this.setState({ currentUser: user.email });
+        }
       } else {
         this.props.history.push('/');
       }
     });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   handleProfileMenuOpen = event => {
