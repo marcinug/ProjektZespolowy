@@ -5,7 +5,6 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  InputBase,
   MenuItem,
   Menu,
 } from '@material-ui/core';
@@ -13,13 +12,12 @@ import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import { withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
-// import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import CalendarToday from '@material-ui/icons/CalendarToday';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { styles } from './AppBarOwnStyles';
 import './AppBarComponent.css';
+import logoImage from '../../assets/img/icon.png';
 
 class AppBarComponent extends React.Component {
   state = {
@@ -92,6 +90,14 @@ class AppBarComponent extends React.Component {
         open={isMobileMenuOpen}
         onClose={this.handleMobileMenuClose}
       >
+        <Link to="/add" className="reactRouterLink">
+          <MenuItem>
+            <IconButton color="inherit">
+              <span className="addPostButton">+</span>
+            </IconButton>
+            <p>Dodaj post</p>
+          </MenuItem>
+        </Link>
         <Link to="/events" className="reactRouterLink">
           <MenuItem>
             <IconButton color="inherit">
@@ -113,13 +119,9 @@ class AppBarComponent extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            {/* <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Open drawer"
-            >
-              <MenuIcon />
-            </IconButton> */}
+            <Link to="/main" className="reactRouterLink">
+              <img src={logoImage} className="appBarLogo" />
+            </Link>
             <Link to="/main" className="reactRouterLink">
               <Typography
                 className={classes.title}
@@ -130,18 +132,6 @@ class AppBarComponent extends React.Component {
                 RADOSNY SENIOR
               </Typography>
             </Link>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-              />
-            </div>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <Link to="/add" className="reactRouterLink">
