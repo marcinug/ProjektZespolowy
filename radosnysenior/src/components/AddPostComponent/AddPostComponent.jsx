@@ -30,6 +30,7 @@ class AddPostComponent extends PureComponent {
     heading: '',
     tel: '',
     description: '',
+    emailInvalid: true,
   };
 
   componentDidMount() {
@@ -45,6 +46,7 @@ class AddPostComponent extends PureComponent {
   }
 
   handleSubmit = () => {
+    delete this.state.emailInvalid;
     const fb = this.props.firebase;
     fb.addPost(this.state);
     this.props.history.push('/main');
@@ -54,6 +56,14 @@ class AddPostComponent extends PureComponent {
     this.setState({
       [name]: event.target.value,
     });
+    if (name === 'email') {
+      const emailInvalid = event.target.value.match(
+        /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i,
+      );
+      this.setState({
+        emailInvalid: emailInvalid,
+      });
+    }
   };
 
   componentWillUnmount() {
@@ -67,7 +77,7 @@ class AddPostComponent extends PureComponent {
         <Paper className="paperContainer">
           <div className="appContainer">
             <div className="mainPageHeading">
-              <h1>Dodaj post</h1>
+              <h1>Dodaj Ogłoszenie</h1>
             </div>
             <div className="addPostFormContainer">
               <TextField
@@ -125,6 +135,9 @@ class AddPostComponent extends PureComponent {
                 margin="normal"
                 type="email"
               />
+              {!this.state.emailInvalid && (
+                <p className="invalidMail">Wpisz poprawny adres email</p>
+              )}
               <TextField
                 id="standard-name"
                 label="Nr telefonu"
@@ -187,10 +200,14 @@ class AddPostComponent extends PureComponent {
                 type="text"
               />
               <span
-                className="formSentButton"
+                className={
+                  this.state.emailInvalid
+                    ? 'formSentButton'
+                    : 'formSentButtonInvalid'
+                }
                 role="button"
                 aria-hidden
-                onClick={this.handleSubmit}
+                onClick={this.state.emailInvalid ? null : this.handleSubmit}
               >
                 WYŚLIJ
               </span>
