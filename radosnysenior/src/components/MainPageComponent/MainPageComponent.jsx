@@ -37,7 +37,9 @@ class PostsListBase extends React.Component {
   state = {
     loading: false,
     posts: [],
-    postType: '',
+    type: '',
+    province: '',
+    filteredPosts: null,
   };
 
   componentDidMount() {
@@ -71,13 +73,27 @@ class PostsListBase extends React.Component {
     this.setState({ [name]: chosenType });
 
     if (chosenType === '') {
+      this.setState({ filteredPosts: null });
       this.parseData();
     } else {
       let posts = this.state.posts;
-      const filteredPosts = posts.filter(function(post) {
-        return post.type === chosenType;
-      });
-      this.setState({ posts: filteredPosts });
+      if (this.state.filteredPosts === null) {
+        const filteredPosts = posts.filter(function(post) {
+          console.log(name);
+          console.log(chosenType);
+          console.log(post);
+          return post[name] === chosenType;
+        });
+        this.setState({ filteredPosts: filteredPosts });
+      } else {
+        const filteredPosts = this.state.filteredPosts.filter(function(post) {
+          console.log(name);
+          console.log(chosenType);
+          console.log(post);
+          return post[name] === chosenType;
+        });
+        this.setState({ filteredPosts: filteredPosts });
+      }
     }
   };
 
@@ -86,7 +102,7 @@ class PostsListBase extends React.Component {
   }
 
   render() {
-    const { posts, loading } = this.state;
+    const { posts, loading, filteredPosts } = this.state;
     return (
       <div className="mainContainer">
         <AppBarComponent />
@@ -99,16 +115,53 @@ class PostsListBase extends React.Component {
                   Typ postu
                 </InputLabel>
                 <Select
-                  value={this.state.postType}
-                  onChange={this.handleChange('postType')}
+                  value={this.state.type}
+                  onChange={this.handleChange('type')}
                   inputProps={{
-                    name: 'postType',
-                    id: 'postType',
+                    name: 'type',
+                    id: 'type',
                   }}
                 >
-                  <MenuItem value={''} />
+                  <MenuItem value="" />
                   <MenuItem value="give">Pomogę</MenuItem>
                   <MenuItem value="need">Szukam pomocy</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl variant="filled" className="postTypeSelect">
+                <InputLabel htmlFor="filled-age-native-simple">
+                  Województwo
+                </InputLabel>
+                <Select
+                  value={this.state.province}
+                  onChange={this.handleChange('province')}
+                  inputProps={{
+                    name: 'province',
+                    id: 'province',
+                  }}
+                >
+                  <MenuItem value="" />
+                  <MenuItem value="dolnośląskie">dolnośląskie</MenuItem>
+                  <MenuItem value="kujawsko-pomorskie">
+                    kujawsko-pomorskie
+                  </MenuItem>
+                  <MenuItem value="lubelskie">lubelskie</MenuItem>
+                  <MenuItem value="lubuskie">lubuskie</MenuItem>
+                  <MenuItem value="łódzkie">łódzkie</MenuItem>
+                  <MenuItem value="małopolskie">małopolskie</MenuItem>
+                  <MenuItem value="mazowieckie">mazowieckie</MenuItem>
+                  <MenuItem value="opolskie">opolskie</MenuItem>
+                  <MenuItem value="podkarpackie">podkarpackie</MenuItem>
+                  <MenuItem value="podlaskie">podlaskie</MenuItem>
+                  <MenuItem value="pomorskie">pomorskie</MenuItem>
+                  <MenuItem value="śląskie">śląskie</MenuItem>
+                  <MenuItem value="świętokrzyskie">świętokrzyskie</MenuItem>
+                  <MenuItem value="warmińsko-mazurskie">
+                    warmińsko-mazurskie
+                  </MenuItem>
+                  <MenuItem value="wielkopolskie">wielkopolskie</MenuItem>
+                  <MenuItem value="zachodniopomorskie">
+                    zachodniopomorskie
+                  </MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -116,9 +169,13 @@ class PostsListBase extends React.Component {
               <CircularProgress />
             ) : (
               <div>
-                {posts.map(post => (
-                  <SinglePostComponent post={post} key={post.id} />
-                ))}
+                {filteredPosts
+                  ? filteredPosts.map(post => (
+                      <SinglePostComponent post={post} key={post.id} />
+                    ))
+                  : posts.map(post => (
+                      <SinglePostComponent post={post} key={post.id} />
+                    ))}
               </div>
             )}
           </div>

@@ -19,6 +19,36 @@
   margin-top: 25px;
 }
 
+.formSentButtonInvalid {
+  background-color: #f6f6f6;
+  text-align: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  cursor: not-allowed;
+}
+
+.formSentButton {
+  background-color: #96ceb4;
+  text-align: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.formSentButton:hover {
+  color: white;
+}
+
+.formSentButton:active {
+  opacity: 0.7;
+}
+
+.invalidMail {
+  margin: 0;
+  padding: 0;
+  color: red;
+}
+
 @media (max-width: 768px) {
   .addPostFormContainer {
     width: 100%;
