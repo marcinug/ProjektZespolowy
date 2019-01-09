@@ -144,60 +144,62 @@ class PostsListBase extends React.Component {
           <div className="appContainer">
             <div className="mainPageHeading">
               <h1>Ogłoszenia</h1>
-              <FormControl variant="filled" className="postTypeSelect">
-                <InputLabel htmlFor="filled-age-native-simple">
-                  Typ postu
-                </InputLabel>
-                <Select
-                  value={this.state.type}
-                  onChange={this.handleTypeChange('type')}
-                  inputProps={{
-                    name: 'type',
-                    id: 'type',
-                  }}
-                >
-                  <MenuItem value="" />
-                  <MenuItem value="give">Pomogę</MenuItem>
-                  <MenuItem value="need">Szukam pomocy</MenuItem>
-                </Select>
-              </FormControl>
-              <FormControl variant="filled" className="postTypeSelect">
-                <InputLabel htmlFor="filled-age-native-simple">
-                  Województwo
-                </InputLabel>
-                <Select
-                  value={this.state.province}
-                  onChange={this.handleProvinceChange('province')}
-                  inputProps={{
-                    name: 'province',
-                    id: 'province',
-                  }}
-                >
-                  <MenuItem value="" />
-                  <MenuItem value="dolnośląskie">dolnośląskie</MenuItem>
-                  <MenuItem value="kujawsko-pomorskie">
-                    kujawsko-pomorskie
-                  </MenuItem>
-                  <MenuItem value="lubelskie">lubelskie</MenuItem>
-                  <MenuItem value="lubuskie">lubuskie</MenuItem>
-                  <MenuItem value="łódzkie">łódzkie</MenuItem>
-                  <MenuItem value="małopolskie">małopolskie</MenuItem>
-                  <MenuItem value="mazowieckie">mazowieckie</MenuItem>
-                  <MenuItem value="opolskie">opolskie</MenuItem>
-                  <MenuItem value="podkarpackie">podkarpackie</MenuItem>
-                  <MenuItem value="podlaskie">podlaskie</MenuItem>
-                  <MenuItem value="pomorskie">pomorskie</MenuItem>
-                  <MenuItem value="śląskie">śląskie</MenuItem>
-                  <MenuItem value="świętokrzyskie">świętokrzyskie</MenuItem>
-                  <MenuItem value="warmińsko-mazurskie">
-                    warmińsko-mazurskie
-                  </MenuItem>
-                  <MenuItem value="wielkopolskie">wielkopolskie</MenuItem>
-                  <MenuItem value="zachodniopomorskie">
-                    zachodniopomorskie
-                  </MenuItem>
-                </Select>
-              </FormControl>
+              <div className="mainPageFilters">
+                <FormControl variant="filled" className="postTypeSelect">
+                  <InputLabel htmlFor="filled-age-native-simple">
+                    Typ postu
+                  </InputLabel>
+                  <Select
+                    value={this.state.type}
+                    onChange={this.handleTypeChange('type')}
+                    inputProps={{
+                      name: 'type',
+                      id: 'type',
+                    }}
+                  >
+                    <MenuItem value="" />
+                    <MenuItem value="give">Pomogę</MenuItem>
+                    <MenuItem value="need">Szukam pomocy</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl variant="filled" className="postTypeSelect">
+                  <InputLabel htmlFor="filled-age-native-simple">
+                    Województwo
+                  </InputLabel>
+                  <Select
+                    value={this.state.province}
+                    onChange={this.handleProvinceChange('province')}
+                    inputProps={{
+                      name: 'province',
+                      id: 'province',
+                    }}
+                  >
+                    <MenuItem value="" />
+                    <MenuItem value="dolnośląskie">dolnośląskie</MenuItem>
+                    <MenuItem value="kujawsko-pomorskie">
+                      kujawsko-pomorskie
+                    </MenuItem>
+                    <MenuItem value="lubelskie">lubelskie</MenuItem>
+                    <MenuItem value="lubuskie">lubuskie</MenuItem>
+                    <MenuItem value="łódzkie">łódzkie</MenuItem>
+                    <MenuItem value="małopolskie">małopolskie</MenuItem>
+                    <MenuItem value="mazowieckie">mazowieckie</MenuItem>
+                    <MenuItem value="opolskie">opolskie</MenuItem>
+                    <MenuItem value="podkarpackie">podkarpackie</MenuItem>
+                    <MenuItem value="podlaskie">podlaskie</MenuItem>
+                    <MenuItem value="pomorskie">pomorskie</MenuItem>
+                    <MenuItem value="śląskie">śląskie</MenuItem>
+                    <MenuItem value="świętokrzyskie">świętokrzyskie</MenuItem>
+                    <MenuItem value="warmińsko-mazurskie">
+                      warmińsko-mazurskie
+                    </MenuItem>
+                    <MenuItem value="wielkopolskie">wielkopolskie</MenuItem>
+                    <MenuItem value="zachodniopomorskie">
+                      zachodniopomorskie
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
             </div>
             {loading ? (
               <CircularProgress />

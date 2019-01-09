@@ -10,8 +10,14 @@
 .mainPageHeading {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .postTypeSelect {
   width: 250px;
+}
+
+.mainPageFilters {
+  display: flex;
+  flex-direction: column;
 }
