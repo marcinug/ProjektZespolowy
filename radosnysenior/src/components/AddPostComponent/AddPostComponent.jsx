@@ -207,7 +207,7 @@ class AddPostComponent extends PureComponent {
                 }
                 role="button"
                 aria-hidden
-                onClick={this.state.emailInvalid ? null : this.handleSubmit}
+                onClick={this.state.emailInvalid ? this.handleSubmit : null}
               >
                 WYŚLIJ
               </span>
