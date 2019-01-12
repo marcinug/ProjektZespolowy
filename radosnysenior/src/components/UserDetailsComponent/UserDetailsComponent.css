@@ -53,3 +53,21 @@
 .rateOtherUserInput {
   width: 50%;
 }
+
+.aboutUser {
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .currenUserH1 {
+    font-size: 1.4rem;
+    text-align: left;
+    padding-left: 15px;
+  }
+
+  .currenUserH2 {
+    font-size: 1.2rem;
+    text-align: left;
+    padding-left: 15px;
+  }
+}

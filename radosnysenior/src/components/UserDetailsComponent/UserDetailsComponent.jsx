@@ -106,14 +106,20 @@ class PostDetailsComponent extends PureComponent {
             <React.Fragment>
               <Paper className="paperContainer paperPostContainer">
                 <div className="userDetailsContainer">
-                  <h1>Użytkownik: {currentUser.email}</h1>
-                  <h2>Imię: {currentUser.firstName}</h2>
-                  <h2>Nazwisko: {currentUser.lastName}</h2>
-                  <h2>
+                  <h1 className="currenUserH1">
+                    Użytkownik: {currentUser.email}
+                  </h1>
+                  <h2 className="currenUserH2">
+                    Imię: {currentUser.firstName}
+                  </h2>
+                  <h2 className="currenUserH2">
+                    Nazwisko: {currentUser.lastName}
+                  </h2>
+                  <h2 className="currenUserH2">
                     Na portalu od:{' '}
                     {moment(currentUser.since).format('DD.MM.YYYY, HH:mm')}
                   </h2>
-                  <h2>
+                  <h2 className="currenUserH2">
                     Email:{' '}
                     <a
                       className="currentUserMail"
@@ -121,6 +127,9 @@ class PostDetailsComponent extends PureComponent {
                     >
                       {currentUser.email}
                     </a>
+                  </h2>
+                  <h2 className="currenUserH2 aboutUser">
+                    O sobie: {currentUser.about}
                   </h2>
                   {_.times(userRating, i => (
                     <StarComponent size="48px" color="#FFDA44" key={i} />

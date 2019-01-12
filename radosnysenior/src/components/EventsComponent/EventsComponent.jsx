@@ -5,7 +5,14 @@ import { withRouter, Link } from 'react-router-dom';
 import * as moment from 'moment';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
 import SingleEventComponent from '../SingleEventComponent/SingleEventComponent';
-import { Paper, CircularProgress } from '@material-ui/core';
+import {
+  Paper,
+  CircularProgress,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+} from '@material-ui/core';
 import './EventsComponent.css';
 
 const EventsPage = () => <EventsList />;
@@ -19,6 +26,8 @@ class EventsComponent extends React.Component {
       loading: false,
       events: [],
       isUserLogged: false,
+      filteredEvents: null,
+      province: '',
     };
   }
 
@@ -50,12 +59,28 @@ class EventsComponent extends React.Component {
     });
   };
 
+  handleProvinceChange = name => event => {
+    const chosenEvent = event.target.value;
+    this.setState({ [name]: chosenEvent });
+
+    if (chosenEvent === '') {
+      this.setState({ filteredEvents: null });
+      this.parseData();
+    } else {
+      const posts = this.state.events;
+      const filteredPosts = posts.filter(function(post) {
+        return post.province === chosenEvent;
+      });
+      this.setState({ filteredEvents: filteredPosts });
+    }
+  };
+
   componentWillUnmount() {
     if (unsubscribe) unsubscribe();
   }
 
   render() {
-    const { events, loading } = this.state;
+    const { events, loading, filteredEvents } = this.state;
     return (
       <div className="mainContainer">
         <AppBarComponent />
@@ -63,26 +88,75 @@ class EventsComponent extends React.Component {
           <div className="appContainer">
             <div className="mainPageHeading eventsHeading allEventsHeading">
               <h1>Wydarzenia</h1>
-              <Link to="/newEvent" className="reactRouterLinkEvents">
-                <span
-                  className="eventsHeading__button"
-                  role="button"
-                  aria-hidden
+              <div className="addAndFilterEvents">
+                <FormControl
+                  variant="filled"
+                  className="postTypeSelect eventTypeSelect"
                 >
-                  DODAJ WYDARZENIE
-                </span>
-              </Link>
+                  <InputLabel htmlFor="filled-age-native-simple">
+                    Województwo
+                  </InputLabel>
+                  <Select
+                    value={this.state.province}
+                    onChange={this.handleProvinceChange('province')}
+                    inputProps={{
+                      name: 'province',
+                      id: 'province',
+                    }}
+                  >
+                    <MenuItem value="" />
+                    <MenuItem value="dolnośląskie">dolnośląskie</MenuItem>
+                    <MenuItem value="kujawsko-pomorskie">
+                      kujawsko-pomorskie
+                    </MenuItem>
+                    <MenuItem value="lubelskie">lubelskie</MenuItem>
+                    <MenuItem value="lubuskie">lubuskie</MenuItem>
+                    <MenuItem value="łódzkie">łódzkie</MenuItem>
+                    <MenuItem value="małopolskie">małopolskie</MenuItem>
+                    <MenuItem value="mazowieckie">mazowieckie</MenuItem>
+                    <MenuItem value="opolskie">opolskie</MenuItem>
+                    <MenuItem value="podkarpackie">podkarpackie</MenuItem>
+                    <MenuItem value="podlaskie">podlaskie</MenuItem>
+                    <MenuItem value="pomorskie">pomorskie</MenuItem>
+                    <MenuItem value="śląskie">śląskie</MenuItem>
+                    <MenuItem value="świętokrzyskie">świętokrzyskie</MenuItem>
+                    <MenuItem value="warmińsko-mazurskie">
+                      warmińsko-mazurskie
+                    </MenuItem>
+                    <MenuItem value="wielkopolskie">wielkopolskie</MenuItem>
+                    <MenuItem value="zachodniopomorskie">
+                      zachodniopomorskie
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+                <Link to="/newEvent" className="reactRouterLinkEvents">
+                  <span
+                    className="eventsHeading__button"
+                    role="button"
+                    aria-hidden
+                  >
+                    DODAJ WYDARZENIE
+                  </span>
+                </Link>
+              </div>
             </div>
             {loading ? (
               <CircularProgress />
             ) : (
               <div>
-                {events.map(
-                  event =>
-                    moment(event.date).isAfter(moment()) && (
-                      <SingleEventComponent event={event} key={event.id} />
-                    ),
-                )}
+                {filteredEvents
+                  ? filteredEvents.map(
+                      event =>
+                        moment(event.date).isAfter(moment()) && (
+                          <SingleEventComponent event={event} key={event.id} />
+                        ),
+                    )
+                  : events.map(
+                      event =>
+                        moment(event.date).isAfter(moment()) && (
+                          <SingleEventComponent event={event} key={event.id} />
+                        ),
+                    )}
               </div>
             )}
           </div>

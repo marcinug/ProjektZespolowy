@@ -28,6 +28,13 @@
 
 .postHeading__heading {
   font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+.postHeading__privince {
+  flex: 1;
+  text-align: right;
 }
 
 .postDescription {
@@ -38,6 +45,10 @@
 .postAddedBy {
   text-align: right;
   font-size: 0.85rem;
+}
+
+.emptyDiv {
+  flex: 1;
 }
 
 @media (max-width: 768px) {

@@ -16,8 +16,14 @@
 }
 
 .reactRouterLinkEvents {
+  margin: 20px 0;
   text-decoration: none;
   color: black;
+}
+
+.addAndFilterEvents {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 500px) {
@@ -25,5 +31,13 @@
     flex-direction: column;
     width: 100%;
     margin-bottom: 20px;
+  }
+
+  .addAndFilterEvents .eventsHeading__button {
+    padding: 10px 40px;
+  }
+
+  .eventTypeSelect {
+    margin: 0 auto !important;
   }
 }

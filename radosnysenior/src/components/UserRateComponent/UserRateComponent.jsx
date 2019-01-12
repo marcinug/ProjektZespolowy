@@ -10,7 +10,11 @@ const UserRateComponent = ({ rate }) => (
   <Paper className="userRateComment">
     <div className="userRateContainer">
       <div className="rateDateCreated">
-        <Link to={`/users/${rate.addedBy}`} className="reactRouterBlueLink">
+        <Link
+          to={`/users/${rate.addedBy}`}
+          onClick={() => this.props.history.push(`/users/${rate.addedBy}`)}
+          className="reactRouterBlueLink"
+        >
           {rate.addedBy}
         </Link>
         ; {moment(rate.created).format('DD.MM.YYYY, HH:mm')}

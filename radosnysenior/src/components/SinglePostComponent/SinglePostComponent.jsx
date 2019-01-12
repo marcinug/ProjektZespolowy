@@ -12,7 +12,9 @@ const SinglePostComponent = ({ post }) => (
         <div className="emptyDiv" />
         <div className="postHeading__heading">{post.heading}</div>
 
-        <div>{`${post.city}, ${post.province}`}</div>
+        <div className="postHeading__privince">{`${post.city}, ${
+          post.province
+        }`}</div>
       </div>
       <div className="postDescription">{post.description}</div>
       <div className="postAddedBy">{`${post.addedBy};  ${moment(

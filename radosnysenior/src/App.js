@@ -11,7 +11,12 @@ import AddPost from './components/AddPostComponent/AddPostComponent';
 import UserDetails from './components/UserDetailsComponent/UserDetailsComponent';
 import Events from './components/EventsComponent/EventsComponent';
 import AddEvent from './components/AddEventComponent/AddEventComponent';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 import * as ROUTES from './constants/routes';
 import rootReducer from './state/reducers';
 import sagas from './state/sagas';
@@ -25,6 +30,7 @@ sagas.forEach(sagaMiddleware.run);
 class App extends PureComponent {
   componentDidMount() {
     document.title = 'Radosny Senior';
+    window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
   }
   render() {
     return (
@@ -32,16 +38,22 @@ class App extends PureComponent {
         <Router>
           <div>
             <p className="version">v.: {vers.version}</p>
-            <Route exact path={ROUTES.LOGIN} component={Login} />
-            <Route exact path={ROUTES.MAIN_PAGE} component={MainPage} />
-            <Route exact path={ROUTES.ADD_POST} component={AddPost} />
-            <Route exact path={ROUTES.SINGLE_POST} component={PostDetails} />
-            <Route exact path={ROUTES.USER_DETAILS} component={UserDetails} />
-            <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
-            <Route exact path={ROUTES.EVENTS} component={Events} />
-            <Route exact path={ROUTES.ADD_EVENT} component={AddEvent} />
-            <Route exact path={ROUTES.SINGLE_EVENT} component={EventDetails} />
-            <Route render={() => <Redirect to={ROUTES.MAIN_PAGE} />} />
+            <Switch>
+              <Route exact path={ROUTES.LOGIN} component={Login} />
+              <Route exact path={ROUTES.MAIN_PAGE} component={MainPage} />
+              <Route exact path={ROUTES.ADD_POST} component={AddPost} />
+              <Route exact path={ROUTES.SINGLE_POST} component={PostDetails} />
+              <Route exact path={ROUTES.USER_DETAILS} component={UserDetails} />
+              <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
+              <Route exact path={ROUTES.EVENTS} component={Events} />
+              <Route exact path={ROUTES.ADD_EVENT} component={AddEvent} />
+              <Route
+                exact
+                path={ROUTES.SINGLE_EVENT}
+                component={EventDetails}
+              />
+              <Route render={() => <Redirect to={ROUTES.MAIN_PAGE} />} />
+            </Switch>
           </div>
         </Router>
       </Provider>
