@@ -45,6 +45,13 @@ class Firebase {
       .doc()
       .set(user);
 
+  deletePost = id => {
+    this.fs
+      .collection('posts')
+      .doc(id)
+      .delete();
+  };
+
   addComment = (id, comments) =>
     this.fs
       .collection('posts')

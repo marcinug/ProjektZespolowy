@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import * as moment from 'moment';
 import { compose } from 'recompose';
 import { Link } from 'react-router-dom';
@@ -6,15 +6,29 @@ import { withFirebase } from '../Firebase';
 import { withRouter } from 'react-router-dom';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
 import './PostDetailsComponent.css';
-import { Paper, TextField } from '@material-ui/core';
+import {
+  Paper,
+  TextField,
+  Slide,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  DialogContentText,
+  Button,
+} from '@material-ui/core';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
 import SingleCommentComponent from '../SingleCommentComponent/SingleCommentComponent';
+
+function Transition(props) {
+  return <Slide direction="up" {...props} />;
+}
 
 const PostDetailsPage = () => <PostDetails />;
 
 var unsubscribe = null;
 
-class PostDetailsComponent extends PureComponent {
+class PostDetailsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,6 +39,7 @@ class PostDetailsComponent extends PureComponent {
       postType: '',
       isCommentBoxVisible: false,
       comment: '',
+      open: false,
     };
   }
 
@@ -66,6 +81,21 @@ class PostDetailsComponent extends PureComponent {
     });
   };
 
+  removePostModal = () => {
+    this.setState({ open: true });
+  };
+
+  removePostAction = () => {
+    const fb = this.props.firebase;
+    fb.deletePost(this.props.match.params.id);
+    this.props.history.push('/main');
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
   addComment = () => {
     const fb = this.props.firebase;
     const currTime = moment().format();
@@ -94,7 +124,7 @@ class PostDetailsComponent extends PureComponent {
   };
 
   render() {
-    const { currentPost, loading } = this.state;
+    const { currentPost, loading, open, currentUser } = this.state;
     return (
       <div className="mainContainer">
         <AppBarComponent />
@@ -103,7 +133,39 @@ class PostDetailsComponent extends PureComponent {
         ) : (
           currentPost && (
             <React.Fragment>
+              <Dialog
+                open={open}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={this.handleClose}
+                aria-labelledby="alert-dialog-slide-title"
+                aria-describedby="alert-dialog-slide-description"
+              >
+                <DialogTitle id="alert-dialog-slide-title">
+                  Czy na pewno chcesz usunąć ten post?
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-slide-description">
+                    Pamiętaj, że usunięcie posta do akcja nieodwracalna i nie
+                    będziesz mógł go przywrócić.
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={this.handleClose}>ANULUJ</Button>
+                  <Button onClick={this.removePostAction} color="primary">
+                    USUŃ
+                  </Button>
+                </DialogActions>
+              </Dialog>
               <Paper className="paperContainer paperPostContainer">
+                {currentUser === currentPost.addedBy && (
+                  <span
+                    className="removePostButton"
+                    onClick={this.removePostModal}
+                  >
+                    USUŃ
+                  </span>
+                )}
                 <div className="appContainer">
                   <div className="mainPageHeading">
                     <h1>{currentPost.heading}</h1>
